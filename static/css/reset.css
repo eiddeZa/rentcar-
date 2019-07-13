@@ -1,0 +1,242 @@
+@charset "utf-8";
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family:myFirstFont;
+}
+
+/* 禁用iPhone中Safari的字号自动调整 */
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    /* 字体大小设置为 100px */
+    font-size: 100px;
+}
+
+html ,body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #fff;
+}
+
+/* 去除iPhone中默认的input样式 */
+
+input {
+    -webkit-appearance: none;
+    resize: none;
+}
+
+/* 取消链接高亮  */
+
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: Microsoft YaHei;
+}
+
+/* 设置HTML5元素为块 */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+/* 图片自适应 */
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+    /* ie8 */
+    -ms-interpolation-mode: bicubic;
+    /*为了照顾ie图片缩放失真*/
+}
+
+*:focus {
+    outline: none;
+}
+
+/* 清除输入框内阴影 */
+
+input,
+select,
+textarea {
+    border: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* 禁用长按页面时的弹出菜单(iOS下有效) ,img和a标签都要加 */
+
+img,
+a {
+    -webkit-touch-callout: none;
+}
+
+/* 清零 */
+
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family:"myFirstFont" !important;
+}
+
+body {
+    font-family: Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self !important;
+    color: #555;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+strong {
+    font-weight: normal;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+a {
+    text-decoration: none;
+    font-family: Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-family:myFirstFont Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self;
+    font-weight: normal;
+}
+
+fieldset,
+img {
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption,
+th {
+    text-align: left;
+}
+/* 字体类型 */
+ @font-face
+{
+    font-family: myFirstFont;
+    src: url('../fontfile/PingFangBold_1.ttf')
+        ,url('../fontfile/PingFangExtraLight_0.ttf')
+        ,url('../fontfile/PingFangHeavy_0.ttf')
+        ,url('../fontfile/PingFangLight_1.ttf')
+        ,url('../fontfile/PingFangMedium_1.ttf')
+        ,url('../fontfile/PingFangRegular_1.ttf');
+}
