@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import shaixuan from '@/views/shaixuan'
+import mendianxuan from './mendianxuan'
+import shaixuan from './shaixuan'
 
 import Mine from './mine' //我的页面
 import Chongzhi from './chongzhi'  //充值页面
@@ -19,7 +20,8 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/shaixuan', component: shaixuan },
+    shaixuan,
+    mendianxuan,
     Mine,
     Chongzhi,
     Citychoose,
@@ -30,7 +32,7 @@ export default new Router({
    RentCar,
    ShopInfo,
 
-    { path: '/', component: Landing },
+    // { path: '/', component: Landing },
     landing,
     register
 	

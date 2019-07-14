@@ -9,7 +9,7 @@ export default {
     name:"betterscroll",
   data() {
     return {
-
+        startY:0
     }
   },
   props: {
@@ -20,6 +20,10 @@ export default {
     scrollEnd:{
       type:Function,
       default:function(){}
+    },
+    probeTypes:{
+      type:Number,
+      default:1
     }
   },
   methods: {
@@ -33,11 +37,11 @@ export default {
   mounted () {
     var scroll=new BS(this.$refs.movie_body,{
       tap:true,
-      probeType:1
+      probeType:this.probeTypes,
     })
     this.scroll=scroll;
     scroll.on("scroll",(obj)=>{
-      this.scrollTop(obj);
+        this.scrollTop(obj);
     }),
     scroll.on("touchEnd",(obj)=>{
       this.scrollEnd(obj);
