@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import shaixuan from '@/views/shaixuan'
+import shaixuan from './shaixuan'
+import mendianxuan from './mendianxuan'
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/shaixuan', component: shaixuan },
-   
-	
+    shaixuan,
+    mendianxuan
   ]
 })

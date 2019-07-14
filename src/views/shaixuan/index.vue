@@ -7,25 +7,25 @@
       <div></div>
       <div class="navbar">
         <ul>
-          <li>
+          <router-link to="/ssum" tag="li">
             <span>全部</span>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/ssum" tag="li">
             <span>经济型</span>
             <span></span>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/ssum" tag="li">
             <span>商务型</span>
             <span></span>
-          </li>
-          <li>
+         </router-link>
+          <router-link to="/ssum" tag="li">
             <span>豪华型</span>
             <span></span>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/ssum" tag="li">
             <span>筛选</span>
             <span></span>
-          </li>
+          </router-link>
         </ul>
       </div>
       <div class="wenxin">
@@ -37,30 +37,49 @@
       </div>
     </div>
     <div class="oo">
-    <betterscroll :scrollTop="scrollTop">
-        <router-view/>
+      <van-loading type="spinner" vertical :color="tcolor" v-if="loading">{{count}}</van-loading>
+      <betterscroll :scrollTop="scrollTop" :scrollEnd="scrollEnd">
+        <keep-alive>
+          <router-view />
+        </keep-alive>
       </betterscroll>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
 import heade from "@/components/header/header.vue";
-import betterscroll from "@/components/betterscroll"
+import betterscroll from "@/components/betterscroll";
 export default {
   data() {
     return {
       msg: "2018年1月起郑州实行工作日7时至至8日起平驾租车为你开启新的吕航",
-      count: 0,
+      count: "释放刷新",
       isLoading: false,
-      loading: false,
+      loading: false, //保存下拉是否存在
       error: false,
+      tcolor: "transparent"
     };
   },
   methods: {
-   scrollTop(obj){
-     console.log(obj);
-   }
+    scrollTop(obj) {
+      //  console.log(obj.y);
+      if (obj.y > 50) {
+        this.loading = true;
+      }
+    },
+    scrollEnd(obj) {
+      if (obj.y > 50) {
+        this.tcolor = "#1989fa";
+        this.count = "正在刷新请稍后......";
+        setTimeout(() => {//在此处写axios请求数据
+          this.$toast("刷新成功");
+          this.loading = false;
+          this.tcolor = "transparent";
+          this.count = "释放刷新";
+        }, 1000);
+      }
+    }
   },
   components: {
     heade,
@@ -72,7 +91,6 @@ export default {
       var end = this.msg.substring(1);
       this.msg = end + str;
     }, 400);
-   
   }
 };
 </script>
@@ -85,9 +103,9 @@ export default {
   flex-wrap: nowrap;
   overflow: auto;
   // overflow: hidden;
-  .oo{
+  .oo {
     flex: 1;
-    overflow:auto;
+    overflow: auto;
   }
 }
 .wenxin {
