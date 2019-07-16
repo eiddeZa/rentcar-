@@ -14,8 +14,10 @@ Vue.prototype.axios=axios;
 //
 import VueBetterScroll from 'vue2-better-scroll';
 Vue.use(VueBetterScroll);
-
 Vue.config.productionTip = false;
+//Swipe
+import { Swipe, SwipeItem } from 'vant';
+Vue.use(Swipe).use(SwipeItem);
 
 /* eslint-disable no-new */
 new Vue({
