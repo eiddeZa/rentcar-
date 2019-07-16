@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-       <slot  name="left"></slot>
+       <slot @click="chang"  name="left"></slot>
       <span>{{txt}}</span>
       <slot name="right"></slot>
   </div>
@@ -17,7 +17,7 @@ export default {
     'txt'
   ],
   methods: {
-
+    
   },
   components: {
 

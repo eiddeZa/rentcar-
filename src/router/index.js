@@ -18,6 +18,8 @@ import evaluate from './pingjia/index.js'//评价
 import guidepage from './yidaoye/index.js'//引导页
 import clause from './fuwutiaokuan/index.js'//服务条款
 // import Landing from '@/views/pingjia/evaluate.vue';
+import Landing from '@/views/denglu_zhuce/landing.vue';
+import shouye from './shouye'//首页
 // import Landing from '@/views/denglu_zhuce/landing.vue';
 // import Landing from '@/views/denglu_zhuce/registers.vue';
 Vue.use(Router)
@@ -38,6 +40,7 @@ export default new Router({
    evaluate,
     landing,
     register,
+    shouye,
     guidepage,
     clause
 	
