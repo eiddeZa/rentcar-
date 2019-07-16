@@ -6,7 +6,7 @@
          <span>查看详情</span>
      </div>
      <div class="img">
-         <img src="../img/bj.png" alt="">
+         <!-- <img src="../img/bj.png" alt=""> -->
      </div>
    </div>
 </template>
@@ -32,14 +32,18 @@ export default {
     height: 4.2rem;
     width: 100%;
     background:rgb(58,163,255);
-    overflow:hidden;
+    overflow: hidden;
+  
     .text{
+        margin-left: .47rem;
         float: left;
     h2{
+        margin-top: .85rem;
         font-size: .73rem;
         color:rgb(255,255,255);
     }
     p{
+        margin-top: .1rem;
         font-size: .27rem;
         color:rgb(157,209,255);
     }
@@ -53,14 +57,15 @@ export default {
         font-size: .2rem;
         line-height: .5rem;
         text-align: center;
+        margin-top: .3rem;
     }
     }
     .img{
-        float: left;
-        img{
-            width: 4.27rem;
-            height: 4.27rem;
-        }
+         float: left;
+            width: 4.1rem;
+            height: 4.1rem;
+        background: url('../img/bj.png') no-repeat .3rem .3rem;
+        background-size: 100% 100%;
     }
   }
 </style>
