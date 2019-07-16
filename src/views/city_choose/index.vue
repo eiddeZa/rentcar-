@@ -1,7 +1,7 @@
 <template>
   <div class="city_index">
      <Header txt='城市'>
-       <img src="./img/iconleft.png" slot="left" class="leftImg">
+       <router-link slot="left" class="leftImg" to='/'><img src="./img/iconleft.png"></router-link>
      </Header>
      <div class="ci_search">
      <Citysearch></Citysearch>

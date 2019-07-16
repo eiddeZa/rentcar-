@@ -1,6 +1,6 @@
 <template>
   <ul class="mine_list">
-   <li> <keep-alive><router-link to="/"><img src="../img/icon-1@2x.png" class="icon_s"><span class="mine_t">我的钱包</span><img src="../img/icon-Check in@2x.png" class="icon_arrow"></router-link></keep-alive></li> 
+   <li> <keep-alive><router-link to="/wallet"><img src="../img/icon-1@2x.png" class="icon_s"><span class="mine_t">我的钱包</span><img src="../img/icon-Check in@2x.png" class="icon_arrow"></router-link></keep-alive></li> 
    <li> <keep-alive><router-link to="/"><img src="../img/icon-2@2x.png" class="icon_s"><span class="mine_t">我的行程</span><img src="../img/icon-Check in@2x.png" class="icon_arrow"></router-link></keep-alive></li> 
    <li> <keep-alive><router-link to="/"><img src="../img/icon-3@2x.png" class="icon_s"><span class="mine_t">我的收藏</span><img src="../img/icon-Check in@2x.png" class="icon_arrow"></router-link></keep-alive></li> 
    <li> <keep-alive><router-link to="/"><img src="../img/icon-4@2x.png" class="icon_s"><span class="mine_t">车型列表</span><img src="../img/icon-Check in@2x.png" class="icon_arrow"></router-link></keep-alive></li> 

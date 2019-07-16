@@ -23,20 +23,31 @@
       <van-cell title="邓州" />
       <van-cell title="邓县" />
       </div>
-      <van-index-anchor index="E" />
-      <div class="lis_box">
-      <van-cell title="洱海" />
-      </div>
+      
     </van-index-bar>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+import $ from 'jquery';
+// import {getCity} from '../../../../static/js/getCity.js'
 export default {
   data() {
-    return {};
+    return {
+      city:''
+    };
   },
-  methods: {},
+  mounted(){
+  //  this._getCurrentCity();
+    // axios.get('http://39.97.33.178/api/cityList').then((response)=>{
+    //  console.log(response);
+    // }).catch((err)=>{console.log(err)});
+  
+  },
+  methods: {
+    
+  },
   components: {}
 };
 </script>
