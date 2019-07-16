@@ -1,7 +1,7 @@
 <template>
-  <div class="chongzhi">
+  <div class="chongzhi" >
    <Header txt='在线充值'>
-      <img src="./img/iconleft.png"  slot="left" class="leftImg">
+     <router-link slot="left" class="leftImg" to='/wallet'><img src="./img/iconleft.png" ></router-link>
    </Header>
    <Banner></Banner>
    <Moneylist></Moneylist>
@@ -23,7 +23,6 @@ export default {
     }
   },
   methods: {
-
   },
   components: {
    Header,

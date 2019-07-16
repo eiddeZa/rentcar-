@@ -243,7 +243,7 @@ export default {
       this.fn();
       let h4=document.querySelectorAll("h4");
       let scrollt=h4[this.index].offsetTop;
-  this.$refs.sc.toscrolltop(-scrollt)     ;
+      this.$refs.sc.toscrolltop(-scrollt)     ;
 
     },
     scrollTop(obj){
@@ -261,16 +261,16 @@ export default {
       if(arr.length==0){
         this.index=0;
       }else{
-
-          let maxs= Math.max.apply(null,arr);
+        let maxs= Math.max.apply(null,arr);
         h4.forEach((item,i)=>{
           if(item.offsetTop==maxs){
             this.index=++i;
-            console.log(this.index)
+            if(this.index>=this.list.length){
+              this.index=this.list.length-1;
+            }
           }
         })
       }
-      console.log(arr);
     },
     fn(){
       this.$refs.men.forEach((item)=>{
@@ -284,9 +284,11 @@ export default {
     index(){
       this.fn();
       let lists=document.querySelectorAll(".bans li");
-      // if(lists[this.index].offsetTop>=lists.parentNode.innerWidth()){
-      //     this.$refs.aaa.toscrolltop(lists.parentNode.innerWidth()/2);
-      // }
+      let biao=document.querySelector(".bans").offsetHeight;
+      let h=lists[0].parentElement.parentElement.offsetHeight;
+      if(lists[this.index].offsetTop>=biao){
+         this.$refs.aaa.toscrolltop(-(lists[this.index].offsetTop-biao+lists[this.index].offsetHeight))
+      }
     }
   },
   mounted(){

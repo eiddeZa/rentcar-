@@ -5,8 +5,8 @@
         <p>账户余额</p>
      </div>
      <div class="money_btn">
-     <span>充&nbsp;&nbsp;&nbsp;值</span>
-     <span>兑&nbsp;&nbsp;&nbsp;换</span>
+     <keep-alive><router-link to="/chongzhi"><span>充&nbsp;&nbsp;&nbsp;值</span></router-link></keep-alive>
+      <span>兑&nbsp;&nbsp;&nbsp;换</span>
      </div>
   </div>
 </template>
@@ -50,9 +50,13 @@ export default {
         width: 5.17rem;
         margin: 0 auto;
         overflow: hidden;
+        
          span:nth-child(2){
              margin-left: 1.67rem;
         }
+        a{
+
+        color: #666666;}
         span{
             float: left;
             line-height: .74rem;
@@ -63,6 +67,7 @@ export default {
             background:#fff6b6;
             // letter-spacing:.3rem;
         }
+        
        
     }
  }

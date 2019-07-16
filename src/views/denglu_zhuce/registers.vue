@@ -1,6 +1,8 @@
 <template>
  <div class="register">
      <lChild>
+       <!-- 头像 -->
+            <van-uploader slot="img_hend" :after-read="afterRead"  v-model="fileList" multiple preview-size="2.41rem" :max-count="1" upload-text="请上传一张头像" capture/>
           <!-- 输入框 -->
            <p slot="input"><input v-model="user" type="text" placeholder="请输入11位手机号" maxlength="11"></p>
            <p slot="input"><input v-model="authcode" type="text" placeholder="请输入验证码  " maxlength="4"><span id="yanzheng">获取验证码</span></p>
@@ -25,10 +27,16 @@ export default {
  return {
    user:"",
    authcode:"",
-   password:""
+   password:"",
+   fileList: [],
+   img_code:""
  }
  },
  methods: {
+   afterRead(file){
+     this.img_code=file.content;
+     console.log(this.img_code);
+   },
   ldg(){
     this.user=this.user,
    this.authcode=this.authcode,
@@ -55,6 +63,22 @@ export default {
     });
      return false;
     }
+  //axios
+this.axios.get('http://172.25.1.225:8080/carRental/accountController/registered', {
+    params: {
+      userPhone: this.user,
+      accountPassword:this.password,
+      upload:this.img_code
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+
 
   }
  },
