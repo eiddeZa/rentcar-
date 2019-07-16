@@ -8,6 +8,9 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import betterScroll from 'better-scroll'
 window.BS=betterScroll
+import VueAMap from 'vue-amap';//引入高德地图
+Vue.use(VueAMap);//注册高德地图
+window.VueAMap=VueAMap;
 Vue.use(Vant);
 import axios from 'axios';
 Vue.prototype.axios=axios;

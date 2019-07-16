@@ -16,6 +16,7 @@ import landing from './denglu_zhuce/index.js'
 import register from './denglu_zhuce/index2.js'
 // import Landing from '@/views/pingjia/evaluate.vue';
 import Landing from '@/views/denglu_zhuce/landing.vue';
+import shouye from './shouye'//首页
 Vue.use(Router)
 
 export default new Router({
@@ -34,7 +35,8 @@ export default new Router({
 
     // { path: '/', component: Landing },
     landing,
-    register
+    register,
+    shouye
 	
   ]
 })

@@ -1,3 +1,3 @@
 export default{
-     path: '/', component: ()=>import('@/views/mendianxuan') 
+     path: '/mendianxuan', component: ()=>import('@/views/mendianxuan') 
 }
