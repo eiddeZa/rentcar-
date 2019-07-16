@@ -3,7 +3,7 @@
     <div class="nullOrder">
       <Header txt="订单信息">
         <!-- <span >dhdhddd</span> -->
-        <img src="./img/back.png" slot="left" class="leftImg" alt/>
+        <router-link  slot="left" class="leftImg" to=""> <img src="./img/back.png" /></router-link>
         <img src="" slot="right" class="rightImg" alt />
       </Header>
     </div>
