@@ -1,13 +1,13 @@
 <template>
  <div>
       <Hend>
-         <router-link class="leftImg" slot="left" to=""><img src="./img/icon-come back@2x.png" alt=""></router-link>
+         <router-link class="leftImg" slot="left" to="/evaluate"><img src="./img/icon-come back@2x.png" alt=""></router-link>
          <router-link class="rightImg" slot="right" to=""><img src="./img/icon-help@2x.png" alt=""></router-link>
      </Hend>
      <div class="form_box">
          <div class="img_box">
              <!-- 头像 -->
-            <van-uploader v-model="fileList" multiple preview-size="2.41rem" :max-count="1" upload-text="请上传一张头像" capture/>
+             <slot name="img_hend"></slot>
          </div>
         <div class="input-box">
             <slot name="input"></slot>
@@ -35,7 +35,7 @@ export default {
  }
  },
  methods: {
-
+    
  },
  components: {
 Hend

@@ -12,11 +12,16 @@ import OrderDetail from './order_detail' //订单详情
 import OrderPay from './order_pay' //支付信息
 import RentCar from './rent_car'  //立即租车
 import ShopInfo from './shop_info'//门店详情
-import landing from './denglu_zhuce/index.js'
-import register from './denglu_zhuce/index2.js'
+import landing from './denglu_zhuce/index.js'//登陆
+import register from './denglu_zhuce/index2.js'//注册
+import evaluate from './pingjia/index.js'//评价
+import guidepage from './yidaoye/index.js'//引导页
+import clause from './fuwutiaokuan/index.js'//服务条款
 // import Landing from '@/views/pingjia/evaluate.vue';
 import Landing from '@/views/denglu_zhuce/landing.vue';
 import shouye from './shouye'//首页
+// import Landing from '@/views/denglu_zhuce/landing.vue';
+// import Landing from '@/views/denglu_zhuce/registers.vue';
 Vue.use(Router)
 
 export default new Router({
@@ -32,11 +37,12 @@ export default new Router({
    OrderPay,
    RentCar,
    ShopInfo,
-
-    // { path: '/', component: Landing },
+   evaluate,
     landing,
     register,
-    shouye
+    shouye,
+    guidepage,
+    clause
 	
   ]
 })
