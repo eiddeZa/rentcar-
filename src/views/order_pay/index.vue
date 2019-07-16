@@ -3,7 +3,7 @@
     <div class="orderPay">
       <Header txt="订单信息">
         <!-- <span >dhdhddd</span> -->
-        <img src="./img/back.png" slot="left" class="leftImg" alt />
+       <router-link  slot="left" class="leftImg" to="/rentCar"><img src="./img/back.png" /></router-link>
         <img src slot="right" class="rightImg" alt />
       </Header>
     </div>
@@ -65,17 +65,18 @@
             <van-cell clickable @click="radio = '1'">
               <img src="./img/alipy.png" alt />
               <span>支付宝</span>
-              <van-radio slot="right-icon" name="1" icon-size=".25rem" />
+              <van-radio slot="right-icon" name="1" icon-size=".3rem" />
             </van-cell>
-            <van-cell clickable @click="radio = '2'" icon-size=".25rem">
+            <van-cell clickable @click="radio = '2'" icon-size=".3rem">
               <img src="./img/weixin.png" alt />
               <span>微信支付</span>
-              <van-radio slot="right-icon" name="2" icon-size=".25rem" />
+              <van-radio slot="right-icon" name="2" icon-size=".3rem" />
             </van-cell>
           </van-cell-group>
         </van-radio-group>
         <van-dropdown-menu>
           <van-dropdown-item v-model="value1" :options="option1" style="font-size:.25rem"/>
+          <!-- <span>更多支付方式<img class="down" src="./img/down.png" alt=""></span> -->
          <img class="down" src="./img/down.png" alt="">
         </van-dropdown-menu>
       </div>
@@ -83,7 +84,7 @@
   <van-checkbox v-model="checked">选中即表示您已同意<span>《平价租车协议》</span></van-checkbox>
       </div>
       <div class="submit">
-        <keep-live><router-link to=""><span>提交/支付</span>  </router-link></keep-live>  
+        <keep-alive><router-link to="/orderDetail"><span>提交/支付</span>  </router-link></keep-alive>  
       </div>
     </div>
   </div>
@@ -181,9 +182,11 @@ export default {
       padding: 0.25rem 0.05rem;
       border-bottom: none;
       img {
+        width: .44rem;
+        height: .44rem;
         margin-right: 0.3rem;
         float: left;
-        vertical-align: top;
+        margin-top: .15rem;
       }
       span {
         display: block;
@@ -195,7 +198,7 @@ export default {
         margin-top: .4rem;
     }
     /deep/.van-dropdown-menu__item{
-    
+    height: .5rem;
   border: none;
     }
       /deep/.van-dropdown-menu__title {
@@ -204,18 +207,25 @@ export default {
     color: #999999
     }
     .down{
-     
+     width: .44rem;
+     height: .44rem;
       margin-right: 1rem;
       float: left;
       position: absolute;
       right: .9rem;
-      top:.05rem;
+      // top:.3rem;
+      // bottom: .3rem;
+      // margin-top: .1rem;
+      // margin-bottom: 3rem; 
+      vertical-align: middle;
+     
     }
     /deep/.van-dropdown-menu__title::after{
       border: none;
+      background: url('./img/down.png')
     }
     /deep/.van-radio__icon .van-icon{
-      border: 2px solid #cccccc;
+      border: 1px solid #cccccc;
     }
     .van-radio__icon van-radio__icon--round van-radio__icon--checked{
       border-color: #2b5dc4
@@ -225,27 +235,31 @@ export default {
     }
     }
   }
+   /deep/.van-checkbox{
+   height: .5rem;
+  }
   .agree{
    
-    // float: right;
+    float: right;
     margin-top: .78rem;
-  
+ 
+ 
     /deep/.van-checkbox__label{
  
-font-size: .20rem;
+font-size: .22rem;
   color: #999999;
-  line-height: .25rem;
+  line-height: .5rem;
     }
     /deep/.van-checkbox__icon .van-icon{
-      width: .25rem;
-      height: .25rem;
+      width: .3rem;
+      height: .3rem;
       font-size: .24rem;
-      margin-top: -.02rem;
-      margin-right: .34rem;
-       margin-left: 2rem;
+      margin-right: .3rem;
     }
-    /deep/.van-icon-success:before{
-      line-height: .25rem;
+    /deep/.van-icon-success
+    {
+      line-height: .3rem;
+      margin-top: -.02rem;
       
     }
 
@@ -254,7 +268,7 @@ font-size: .20rem;
     }
   }
   .submit{
-    margin-top: 1.45rem;
+    margin-top: 2.55rem;
     margin-bottom: .48rem;
     width: 100%;
     height: 1rem;

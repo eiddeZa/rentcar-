@@ -3,7 +3,7 @@
     <div class="orderDetail">
       <Header txt="订单详情">
         <!-- <span >dhdhddd</span> -->
-        <img src="./img/back.png" slot="left" class="leftImg" alt />
+        <router-link  slot="left" class="leftImg" to="/orderPay"> <img src="./img/back.png"  /></router-link>
         <img src slot="right" class="rightImg" alt />
       </Header>
     </div>
@@ -31,7 +31,7 @@
       <div class="rent_info">
         <ul>
           <li>
-            取车城市：
+            <span>取车城市：</span>
             <span>郑州</span>
           </li>
           <li>
@@ -40,7 +40,7 @@
           </li>
           <li>
             取车时间：
-            <span>2019-07-23</span>
+            <span>2019-07-13</span>
           </li>
           <li>
             还车城市：
@@ -94,7 +94,7 @@
           </router-link to="#">
         </keep-alive>
         <keep-alive>
-          <router-link to>
+          <router-link to="">
             <span>预定评价</span>
           </router-link>
         </keep-alive>
@@ -107,7 +107,8 @@
 import Header from "./../../components/header/header.vue";
 export default {
   data() {
-    return {};
+    return {
+    };
   },
   methods: {},
   components: {
@@ -147,6 +148,8 @@ export default {
     box-sizing: border-box;
     padding-top: 0.2rem;
     img {
+      width: 1.5rem;
+      height:1.4rem;
       float: left;
       margin-top: 0.05rem;
     }
