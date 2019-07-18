@@ -99,7 +99,7 @@ export default {
      {this.date = value;
      this.s_h_m=value;}
      this.f_h_m=value;
-      // this.endTime= value; 
+      this.endTime= value; 
       // this.a=value;
       //  var date = value;
       //       var m = date.getMonth() + 1;
@@ -115,6 +115,7 @@ export default {
       //       }
       //       var timer = date.getFullYear() + "-" + m + "-" + d+h+'-'+m;
       //       this.$refs[this.datePicker].innerHTML=timer;
+      // this.date=timer;
       this.isPopShow = false;
       this.datePicker = "";
       this.flag=!this.flag;
@@ -127,7 +128,8 @@ export default {
       this.tianshu=day+'天';
       console.log(s_date);
       console.log(day)
-      
+      this.$store.commit('day',this.tianshu);
+      this.$store.commit('getTime',this.date);
 
       switch(this.date.getDay()){
       case 0:
@@ -219,7 +221,7 @@ export default {
   height: 1rem;
   line-height: 1rem;
   overflow: hidden;
-  margin-top:-.4rem;
+  margin-top:1.5rem;
 
   .deration{
     span{

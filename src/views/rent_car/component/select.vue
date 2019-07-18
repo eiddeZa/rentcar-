@@ -1,18 +1,38 @@
 <template>
   <div>
 <div class="select">
-<van-dropdown-menu>
-  <van-dropdown-item v-model="value1" :options="option1" />
-  <van-dropdown-item v-model="value2" :options="option2" />
-</van-dropdown-menu>
-<div class="menu">
-    <ul>
+   <div class="city">
+     <span @click="city">郑州</span>
+     <img src="./../img/icon2.png" alt="">
+     <span>请选择地址</span>
+     <div class="menu">
+       <ul>
            <li class="active"><span >上门</span></li>
            <li><span>到店</span></li>
          </ul>
+    </div>
+
+   </div>
+    <div class="shop">
+     <span>郑州</span>
+     <img src="./../img/icon2.png" alt="">
+     <span>请选择门店</span>
+     <div class="menu">
+       <ul>
+           <li class="active"><span >上门</span></li>
+           <li><span>到店</span></li>
+         </ul>
+    </div>
+
+   </div>
+<!-- <van-dropdown-menu> -->
+ <!-- <van-dropdown-item v-model="value1" :options="option1" /> -->
+
+  <!-- <van-dropdown-item v-model="value2" :options="option2" /> -->
+<!-- </van-dropdown-menu> -->
+
 </div>
-</div>
-<div class="select">
+<!-- <div class="select">
 <van-dropdown-menu>
   <van-dropdown-item v-model="value3" :options="option3" />
   <van-dropdown-item v-model="value4" :options="option4" />
@@ -23,7 +43,7 @@
            <li><span>到店</span></li>
          </ul>
 </div>
-</div>
+</div> -->
   </div>
 </template>
 
@@ -38,8 +58,8 @@ export default {
       value4:'shop',
       option1: [
         { text: '郑州', value: 'city1' },
-        { text: '北京', value: 'city2' },
-        { text: '上海', value: 'city3' }
+        // { text: '北京', value: 'city2' },
+        // { text: '上海', value: 'city3' }
       ],
       option2: [
         { text: '金水区', value:'quyu' },
@@ -59,15 +79,36 @@ export default {
     }
   },
   mounted(){
+    
     $(function(){
+      //自定义tap事件
+      $(document).on("touchstart", function(e) {
+    var $target = $(e.target);
+    if(!$target.hasClass("disable")) $target.data("isMoved", 0);
+});
+ 
+$(document).on("touchmove", function(e) {
+    var $target = $(e.target);
+    if(!$target.hasClass("disable")) $target.data("isMoved", 1);
+});
+ 
+$(document).on("touchend", function(e) {
+    var $target = $(e.target);
+    if(!$target.hasClass("disable") && $target.data("isMoved") == 0) $target.trigger("tap");
+});
       console.log(1111)
-    $(".menu li").click(function() {
+    $(".menu li").on('tap',function() {
         $(this).siblings('li').removeClass('active');  // 删除其兄弟元素的样式
         $(this).addClass('active');                    // 为点击元素添加类名
     });
 });
   },
   methods: {
+    city(){
+      console.log(2222);
+      this.$router.push('/cityChoose')
+      
+    }
 
   },
   components: {
@@ -85,6 +126,25 @@ export default {
     // margin-top:.1rem;
     padding: .21rem;
     position: relative;
+    .city,.shop{
+      font-size:.3rem;
+      overflow: hidden;
+      margin-bottom: .16rem;
+      padding: .13rem 0;
+      span:nth-child(3){
+        font-size: .2rem;
+        color: #999999;
+        margin-top:.1rem;
+      }
+      span{
+        float: left;
+      }
+      img{
+        float: left;
+        width: .6rem;
+        height: .6rem;;
+      }
+    }
     
     .menu{
         font-size: 0;
@@ -123,16 +183,18 @@ flex-direction: row;
         }
     }
     /deep/.van-popup--top{
-      width: 6.5rem;
-       margin-left:  .34rem;
-       text-align: center; 
-       font-size: .3rem;
+      // width: 6.5rem;
+      //  margin-left:  .34rem;
+      //  text-align: center; 
+      //  font-size: .3rem;
+       display:none;
    
     //    padding: 0 .1rem; 
     }
     /deep/.van-overlay{
-        width: .9rem;
-        background-color: #ededed;
+        // width: .9rem;
+        // background-color;
+        display: none;
     }
    /deep/ .van-dropdown-menu{
        display: block;
