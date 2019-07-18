@@ -6,13 +6,12 @@
     </Header>
     <div class="user_text">
       <div class="icon_user" >
-      <!-- <img src="./img/img@2x.png" /> -->
-      <van-uploader  :max-count="1">
+      <van-uploader  :max-count="2" >
      <van-button icon="photo" type="primary"></van-button>
     </van-uploader>
       </div>
       <div class="u_txt">
-        <span class="user_num">{{user_num}}</span>
+        <span class="user_num">{{user_num | encode}}</span>
         <span class="un_renzheng">{{rezheng_bool}}</span>
       </div>
       <van-button type="primary" @click="showPopup" class="sign" :disabled="shyi">
@@ -37,13 +36,12 @@ import Footer from "./component/mine_footer";
 export default {
   filters: {
     // 过滤器  加密 用户账号
-    encode(val) {
-      // console.log(val , typeof val.toString());
-      val = val.toString;
-      // let jiami_num = val.substr(0,4);
-      let jiami_num = val;
-      // console.log(jiami_num);
-      return val;
+    encode:function(val) {
+      val = val.toString();
+      console.log(val);
+      let jiami_num = val.substring(0,4) + '***' +val.substring(7);
+      console.log(jiami_num);
+      return jiami_num;
     }
   },
   data() {
@@ -82,7 +80,8 @@ export default {
     height: 1.6rem;
   }
   /deep/.van-button--primary{
-    background: url("./img/img@2x.png") no-repeat;
+    background: url("./img/img@2x.png") no-repeat center center;
+    background-size: 100% 100%;
   }
   /deep/.van-icon::before{
     display:none;

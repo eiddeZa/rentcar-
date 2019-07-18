@@ -1,19 +1,25 @@
 <template>
   <div class="c_search">
     <img src="../img/search.png">
-    <input type="text" placeholder="中文/拼音/首字母拼写">
+    <input type="text" placeholder="中文/拼音/首字母拼写" @blur="searchcity">
   </div>
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   data() {
     return {
-
+       his_city:this.$store.state.historycity
     }
   },
   methods: {
-
+  searchcity(){
+ 
+      // this.his_city.push("$('input').val()");
+      // console.log(this.his_city);
+      // this.$store.commit('chosed_c',this.his_city); 
+  }
   },
   components: {
 

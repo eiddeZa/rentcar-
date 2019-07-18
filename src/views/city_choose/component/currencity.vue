@@ -3,7 +3,7 @@
     <h2>最近访问的城市</h2>
     <ul>
         <li>北京</li>
-        <li>广东</li>
+        <li>上海</li>
     </ul>
   </div>
 </template>
@@ -14,6 +14,9 @@ export default {
     return {
 
     }
+  },
+  mounted(){
+   
   },
   methods: {
 
