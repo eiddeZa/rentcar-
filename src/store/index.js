@@ -10,6 +10,8 @@ export default new Vuex.Store({
     tianshu:'2天',
     get_time:new Date(),
 
+    choosedcity:"郑州",
+    jine:0
   },
   mutations: {
     //签到加积分200
@@ -24,7 +26,14 @@ export default new Vuex.Store({
     state.tianshu=v
   },
   getTime(state,v){
-    state.get_time=v
+    state.get_time=v},
+  //所选择的城市名字
+  chosed_c(state,v){
+    state.chosedcity = v;
+   
+  },
+  add_jine(state,v){
+    state.jine += v;
   }
   },
   actions: {

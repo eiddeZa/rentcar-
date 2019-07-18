@@ -5,6 +5,7 @@ import shaixuan from './shaixuan'
 
 import Mine from './mine' //我的页面
 import Chongzhi from './chongzhi'  //充值页面
+import success from './succ' //充值成功
 import Citychoose from './citychoose'  //城市选择
 import Mywallet from './mywallet' //我的钱包
 import NullOrder from './null_order'  //空订单信息
@@ -42,7 +43,8 @@ export default new Router({
     register,
     shouye,
     guidepage,
-    clause
+    clause,
+    success
 	
   ]
 })

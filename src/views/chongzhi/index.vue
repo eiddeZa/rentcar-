@@ -7,6 +7,7 @@
    <Moneylist></Moneylist>
    <Way></Way>
    <Btn></Btn>
+ 
   </div>
 </template>
 

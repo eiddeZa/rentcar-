@@ -1,29 +1,38 @@
 <template>
   <div class="hotCity">
      <h2>热门城市</h2>
-    <ul>
-        <li>北京</li>
-        <li>上海</li>
-        <li>上海</li>
-        <li>天津</li>
-        <li>重庆</li>
-        <li>长沙</li>
-        <li>西安</li>
-        <li>西安</li>
-        <li>西安</li>
+    <ul class="hotli">
+        <li v-for="(item,index) in hotlist" :key="index" @click="chosed_city(index)">{{item.name}}</li>
     </ul>
   </div>
 </template>
 
 <script>
+import $ from 'jquery'
+import axios from 'axios'
 export default {
   data() {
     return {
-
+       hotlist:[]
     }
   },
+  mounted(){
+   axios({
+     url:'../../../../static/json/city.json',
+     method:'get',
+   }).then((res)=>{
+     this.hotlist = res.data.hotcity;
+   }).catch((err)=>{
+     console.log(err)
+   })
+  },
   methods: {
-
+  chosed_city(index){
+   var cityname = this.hotlist[index].name; 
+   console.log(cityname);
+    this.$store.commit('chosed_c',cityname);
+    this.$router.push("/rentCar")
+  }
   },
   components: {
 
