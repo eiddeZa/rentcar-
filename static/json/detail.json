@@ -1,0 +1,28 @@
+{
+"order_info":[
+    {   "order_num":22223334555,
+        "order_time":"2019-07-17",
+        "img_src":"./img/car.png",
+        "car_name":"丰田汉兰达",
+        "car_type":"SUV",
+        "car_auto":"2.7自动",
+        "car_size":"乘坐5人",
+        "get_city":"郑州",
+        "get_shop":"金水路店",
+        "get_time":"2019-07-13",
+        "return_city":"洛阳",
+        "return_shop":"皇城公园店",
+        "rent_time":"2",
+        "money":"100",
+        "shouqu_money":"200",
+        "use_money":"100",
+        "baoxian_money":"1000",
+        "shouxu_time":"90",
+        "service_time":"400",
+        "GPS_money":"30",
+        "return_money":"400",
+        "jiayou_money":"200",
+        "sunshang_money":"80"
+    }
+    
+]}

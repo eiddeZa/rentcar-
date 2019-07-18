@@ -30,7 +30,7 @@
           </li>
           <li>
             取车时间：
-            <span>2019-07-23</span>
+            <span>{{$store.state.get_time | formatDate}}</span>
           </li>
         </ul>
         <ul>
@@ -44,14 +44,14 @@
           </li>
           <li>
             租车时长：
-            <span>2天</span>
+            <span>{{$store.state.tianshu}}</span>
           </li>
         </ul>
       </div>
       <div class="price">
         <p>
           天数：
-          <span>3</span>天
+          <span>{{$store.state.tianshu }}</span>
         </p>
         <p>
           定金：
@@ -92,9 +92,13 @@
 
 <script>
 import Header from "../../components/header/header.vue";
+var padDate = function(val) {
+  return val < 10 ? "0" + val : val;
+};
 export default {
   data() {
     return {
+      // tianshu:'3天',
       checked:true,
       radio: "1",
       value1: 0,
@@ -104,6 +108,19 @@ export default {
         { text: "添加银行卡", value: 2 }
       ]
     };
+  },
+  filters: {
+    formatDate: function(val) {
+      if (val) {
+        var year = val.getFullYear();
+        var month = padDate(val.getMonth() + 1);
+        var day = padDate(val.getDate());
+        var hour = padDate(val.getHours());
+        var minutes = padDate(val.getMinutes());
+        var second = padDate(val.getSeconds());
+        return month + "月" + day + "日";
+      }
+    }
   },
   methods: {},
   components: {
