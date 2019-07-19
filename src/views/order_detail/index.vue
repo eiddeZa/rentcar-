@@ -11,16 +11,16 @@
       <div class="title">
         <p  >
           订单号：
-          <span>{{list.order_num}}</span>
+          <span>{{$store.state.order_num}}</span>
         </p>
         <p>
           下单日期：
-          <span>{{list.order_time}}</span>
+          <span>{{$store.state.order_time}}</span>
         </p>
       </div>
       <div class="car_info" >
         <h4>车辆信息</h4>
-        <img :src="list.img_src" alt />
+        <img src="./img/car.png" alt />
         <p>{{list.car_name}}</p>
         <p>
           <span>{{list.car_type}}</span>|

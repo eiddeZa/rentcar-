@@ -22,7 +22,7 @@
                 <div class="andmine">
                   <h4>附近门店</h4>
                   <ul>
-                    <li>
+                    <li @tap="tag">
                       <div class="title">
                         <div>郑州动物园自助点</div>
                         <div>
@@ -277,6 +277,9 @@ export default {
         item.className="";
       })
       this.$refs.men[this.index].className="active";
+    },
+    tag(){
+      this.$router.push({path:"/shopInfo",query:{title:"lalala"}})
     }
 
   },

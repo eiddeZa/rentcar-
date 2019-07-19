@@ -21,12 +21,12 @@
       <div class="rate">
         <van-rate v-model="value" :size="20" :count="5" allow-half />
         <span>{{value*20}}评分</span>
-        <keep-live>
+        <keep-alive>
           <router-link to="">
             <span>136</span>人评价
             <van-icon name="arrow" />
           </router-link>
-        </keep-live>
+        </keep-alive>
       </div>
       <div class="images">
           <ul>
@@ -65,10 +65,10 @@
           </div>
       </div>
      <div class="more">
-         <keep-live><router-link to=""> <span>查看更多评价</span> <van-icon name="arrow" /></router-link></keep-live>
+         <keep-alive><router-link to=""> <span>查看更多评价</span> <van-icon name="arrow" /></router-link></keep-alive>
      </div>
      <div class="rent">
-         <keep-live><router-link to=""><span>立即租车</span>  </router-link></keep-live>  
+         <keep-alive><router-link to="/ssum"><span>立即租车</span>  </router-link></keep-alive>  
      </div>
       
     </div>
@@ -96,6 +96,9 @@ export default {
   },
   components: {
     Header
+  },
+  mounted(){
+    console.log(this.$route.query.title);
   }
 };
 </script>
