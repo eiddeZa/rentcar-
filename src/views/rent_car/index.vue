@@ -33,6 +33,16 @@
      <div class="rent_">
 <Select></Select>
 <TimerPicker></TimerPicker>
+<!-- <div class="car_info">
+        <h4>车辆信息</h4>
+        <img src="./img/car.png" alt />
+        <p>丰田汉兰达</p>
+        <p>
+          <span>SUV</span>|
+          <span>2.7自动</span>|
+          <span>乘坐5人</span>
+        </p>
+      </div> -->
 <div class="select_car">
          <keep-alive><router-link to="/orderPay"><span>提交订单</span>  </router-link></keep-alive>  
      </div>

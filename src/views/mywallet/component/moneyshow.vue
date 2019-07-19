@@ -1,7 +1,7 @@
 <template>
   <div class="money_show">
      <div class="show_jine">
-        <p><span>2401</span>￥</p>
+        <p><span>{{$store.state.jine}}</span>￥</p>
         <p>账户余额</p>
      </div>
      <div class="money_btn">

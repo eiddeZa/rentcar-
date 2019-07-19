@@ -53,8 +53,12 @@ Hend
         height:241/@r;
         background-color: #fff;
         margin:29/@r auto;
-        border-radius:37/@r;
+        border-radius:50%;
         box-shadow:#f1f3f2 0 0 15/@r 8/@r;
+        overflow: hidden;
+        background: url("./img/Start_icon@2x.png") no-repeat center center;
+        background-size:100% 100%; 
+         border: 2/@r solid #ffec09; 
     }
     .input-box{
         margin-top:90/@r;
@@ -126,7 +130,6 @@ Hend
             width: 90/@r;
             background: url("./img/icon-WX@2x.png")no-repeat;
             background-size:90/@r 90/@r; 
-            
          }
          a{
              display: inline-block;
@@ -155,6 +158,8 @@ Hend
         top:2/@r;
         right:10/@r;
         z-index: 100;
+        width:164/@r;
+        text-align: center;
     }
 
 }
@@ -164,5 +169,25 @@ Hend
     color:#ffe009;
     font-size:120/@r;
     }
+}
+/deep/.van-button--normal{
+      width:241/@r;
+      height:241/@r;   
+      border-radius:50%;
+}
+/deep/.van-button--primary{
+    background: url("./img/Start_icon@2x.png") no-repeat center center;
+    background-size:100% 100%;
+    border:none; 
+}
+/deep/.van-icon::before{
+    display: none;
+}
+/deep/.van-uploader__preview-image{
+     width:241/@r;
+     height:241/@r; 
+}
+.event{
+    pointer-events:none;
 }
 </style>

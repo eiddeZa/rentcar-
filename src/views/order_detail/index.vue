@@ -9,50 +9,50 @@
     </div>
     <div class="content">
       <div class="title">
-        <p>
+        <p  >
           订单号：
-          <span>2456434578</span>
+          <span>{{list.order_num}}</span>
         </p>
         <p>
           下单日期：
-          <span>2019-07-13</span>
+          <span>{{list.order_time}}</span>
         </p>
       </div>
-      <div class="car_info">
+      <div class="car_info" >
         <h4>车辆信息</h4>
-        <img src="./img/car.png" alt />
-        <p>丰田汉兰达</p>
+        <img :src="list.img_src" alt />
+        <p>{{list.car_name}}</p>
         <p>
-          <span>SUV</span>|
-          <span>2.7自动</span>|
-          <span>乘坐5人</span>
+          <span>{{list.car_type}}</span>|
+          <span>{{list.car_auto}}</span>|
+          <span>{{list.car_size}}</span>
         </p>
       </div>
       <div class="rent_info">
         <ul>
           <li>
             <span>取车城市：</span>
-            <span>郑州</span>
+            <span>{{list.get_city}}</span>
           </li>
           <li>
             取车门店：
-            <span>金水路店</span>
+            <span>{{list.get_shop}}</span>
           </li>
           <li>
             取车时间：
-            <span>2019-07-13</span>
+            <span>{{list.get_time}}</span>
           </li>
           <li>
             还车城市：
-            <span>洛阳</span>
+            <span>{{list.return_city}}</span>
           </li>
           <li>
             还车门店：
-            <span>皇城公园店</span>
+            <span>{{list.return_shop}}</span>
           </li>
           <li>
             租车时长：
-            <span>2天</span>
+            <span>{{$store.state.tianshu}}</span>
           </li>
         </ul>
       </div>
@@ -60,38 +60,38 @@
         <ul>
           <li>
             定金：
-            <span></span>
+            <span>{{list.money}}元</span>
           </li>
           <li>
             预授权金额：
-            <span></span>
+            <span>{{list.shouqu_money}}元</span>
           </li>
           <li>
             使用费：
-            <span></span>
+            <span>{{list.use_money}}元</span>
           </li>
           <li>
             基本保险：
-            <span></span>
+            <span>{{list.baoxian_money}}元</span>
           </li>
           <li>
             手续费：
-            <span></span>
+            <span>{{list.shouxu_time}}元</span>
           </li>
         </ul>
         <ul>
-          <li>不计免赔服务费：</li>
-          <li>GPS服务费：</li>
-          <li>异地还车费：</li>
-          <li>加油费：</li>
-          <li>车辆损伤费：</li>
+          <li>不计免赔服务费：<span>{{list.service_time}}元</span></li>
+          <li>GPS服务费：<span>{{list.GPS_money}}元</span></li>
+          <li>异地还车费：<span>{{list.return_money}}元</span></li>
+          <li>加油费：<span>{{list.jiayou_money}}元</span></li>
+          <li>车辆损伤费：<span>{{list.sunshang_money}}元</span></li>
         </ul>
       </div>
       <div class="button">
         <keep-alive>
-          <router-link to="#">
+          <router-link to="">
             <span>再来一单</span>
-          </router-link to="#">
+          </router-link to="">
         </keep-alive>
         <keep-alive>
           <router-link to="">
@@ -108,7 +108,17 @@ import Header from "./../../components/header/header.vue";
 export default {
   data() {
     return {
+      list:[]
     };
+  },
+  mounted(){
+this.axios.get('./../../../static/json/detail.json').then((res)=>{
+  this.list=res.data.order_info[0];
+  console.log(res)
+  console.log(this.list)
+}).catch((err)=>{
+  console.log(err);
+})
   },
   methods: {},
   components: {
