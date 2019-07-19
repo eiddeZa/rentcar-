@@ -3,7 +3,7 @@
  <div class="rentCar">
       <Header txt="租车">
         <!-- <span >dhdhddd</span> -->
-        <router-link  slot="left" class="leftImg" to=""> <img src="./img/back.png"  /></router-link>
+        <router-link  slot="left" class="leftImg" to="/shouye"> <img src="./img/back.png"  /></router-link>
         <img src slot="right" class="rightImg" alt />
       </Header>
     </div>

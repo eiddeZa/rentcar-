@@ -1,8 +1,8 @@
 <template>
   <div class="main">
     <heade txt="平价租车">
-      <img src="./image/矢量智能对象@3x.png" slot="left" class="leftImg" alt />
-      <img src="./image/矢量智能对象@3x(1).png" slot="right" class="rightImg" alt />
+      <router-link slot="left" to="/mine" class="leftImg"><img src="./image/矢量智能对象@3x.png" alt /></router-link>
+      <router-link slot="right" to="/clause" class="rightImg"><img src="./image/矢量智能对象@3x(1).png"  alt /></router-link>
     </heade>
     <div class="map">
      <el-amap 
@@ -17,44 +17,23 @@
     <div>
       <div class="foot">
         <ul>
-          <li>
-            <img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt="">
+          <li v-for="(item,index) in list" :key="index">
+            <img :src="item.image" alt="">
             <div>
-              <p>丰田汉兰达</p>
-              <p>日租价:<span>&yen;2408</span></p>
-            </div>
-          </li>
-          <li>
-            <img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt="">
-            <div>
-              <p>丰田汉兰达</p>
-              <p>日租价:<span>&yen;2408</span></p>
-            </div>
-          </li>
-          <li>
-            <img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt="">
-            <div>
-              <p>丰田汉兰达</p>
-              <p>日租价:<span>&yen;2408</span></p>
-            </div>
-          </li>
-          <li>
-            <img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt="">
-            <div>
-              <p>丰田汉兰达</p>
-              <p>日租价:<span>&yen;2408</span></p>
+              <p>{{item.title}}</p>
+              <p>日租价:<span>&yen;{{item.primary}}</span></p>
             </div>
           </li>
         </ul>
         <p class="quanbu">
-          <span>查看全部车型</span>
+          <router-link tag="span" to="/shaixuan">查看全部车型</router-link>
         </p>
         <p class="wy" @click="meng=true">我要租车</p>
       </div>
     </div>
     <div class="tanchu" v-show="meng">
       <ul>
-        <li @click="meng=false">时间/日期</li>
+        <li @click="showren()">时间/日期</li>
         <li @click="meng=false">顺风车</li>
         <li @click="meng=false">取消</li>
       </ul>
@@ -121,17 +100,29 @@ export default {
             }
           }
         }
-      ]
+      ],
+      list:[]
     }
   },
   methods: {
-    
+  showren(){
+      this.meng=false;
+      this.$router.push("/rentCar");
+    }
   },
   components:{
     heade
   },
   mounted(){
-  }
+    this.axios.get(this.ID+"carRental_war_exploded/carController/findAllCar").then((res)=>{
+      if(res.status==200){
+        // this.list=res.data;
+        console.log(res.data);
+
+        
+      }
+    })
+  },
 }
 </script>
 
@@ -240,7 +231,8 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
+  flex-wrap: nowrap;
   .map {
     height: 7.18rem;
     width: 100%;

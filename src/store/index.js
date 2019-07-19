@@ -11,6 +11,8 @@ export default new Vuex.Store({
     get_time:new Date(),//取车时间
     order_num:null,//订单号
     order_time:null,//订单时间
+    tianshu:'2天',
+    get_time:new Date(),
     chosedcity:"郑州",
     jine:0
   },

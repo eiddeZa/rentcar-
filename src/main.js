@@ -29,6 +29,7 @@ import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 Vue.config.productionTip = false
 /* eslint-disable no-new */
+window.ID="http://172.25.1.227:8080/";
 new Vue({
   el: '#app',
   router,

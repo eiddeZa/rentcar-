@@ -89,12 +89,12 @@
       </div>
       <div class="button">
         <keep-alive>
-          <router-link to="">
+          <router-link to="/">
             <span>再来一单</span>
-          </router-link to="">
+          </router-link >
         </keep-alive>
         <keep-alive>
-          <router-link to="">
+          <router-link to="/">
             <span>预定评价</span>
           </router-link>
         </keep-alive>

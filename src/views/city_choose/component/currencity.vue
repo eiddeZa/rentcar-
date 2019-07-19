@@ -2,8 +2,7 @@
   <div class="curr_city">
     <h2>最近访问的城市</h2>
     <ul>
-        <li>北京</li>
-        <li>上海</li>
+        <li v-for="(item,index) in hot_list" :key="index" @click="tiao(item)">{{item}}</li>
     </ul>
   </div>
 </template>
@@ -12,14 +11,15 @@
 export default {
   data() {
     return {
-
+     hot_list:["郑州","北京"]
     }
   },
-  mounted(){
-   
-  },
   methods: {
-
+tiao(item){
+       console.log(item);
+       this.$store.commit('chosed_c',item);
+       this.$router.push("/rentCar");
+}
   },
   components: {
 
