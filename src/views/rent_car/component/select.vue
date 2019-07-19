@@ -2,7 +2,7 @@
   <div>
 <div class="select">
    <div class="city">
-     <span @click="city">郑州</span>
+     <span @click="city">{{$store.state.chosedcity}}</span>
      <img src="./../img/icon2.png" alt="">
      <span>请选择地址</span>
      <div class="menu">

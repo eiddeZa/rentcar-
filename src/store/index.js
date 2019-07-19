@@ -9,8 +9,7 @@ export default new Vuex.Store({
     chooseLi:0,
     tianshu:'2天',
     get_time:new Date(),
-
-    choosedcity:"郑州",
+    chosedcity:"郑州",
     jine:0
   },
   mutations: {
