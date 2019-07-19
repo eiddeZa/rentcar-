@@ -17,37 +17,16 @@
     <div>
       <div class="foot">
         <ul>
-          <li>
-            <img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt="">
+          <li v-for="(item,index) in list" :key="index">
+            <img :src="item.image" alt="">
             <div>
-              <p>丰田汉兰达</p>
-              <p>日租价:<span>&yen;2408</span></p>
-            </div>
-          </li>
-          <li>
-            <img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt="">
-            <div>
-              <p>丰田汉兰达</p>
-              <p>日租价:<span>&yen;2408</span></p>
-            </div>
-          </li>
-          <li>
-            <img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt="">
-            <div>
-              <p>丰田汉兰达</p>
-              <p>日租价:<span>&yen;2408</span></p>
-            </div>
-          </li>
-          <li>
-            <img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt="">
-            <div>
-              <p>丰田汉兰达</p>
-              <p>日租价:<span>&yen;2408</span></p>
+              <p>{{item.title}}</p>
+              <p>日租价:<span>&yen;{{item.primary}}</span></p>
             </div>
           </li>
         </ul>
         <p class="quanbu">
-          <span>查看全部车型</span>
+          <router-link tag="span" to="/shaixuan">查看全部车型</router-link>
         </p>
         <p class="wy" @click="meng=true">我要租车</p>
       </div>
@@ -121,7 +100,8 @@ export default {
             }
           }
         }
-      ]
+      ],
+      list:[]
     }
   },
   methods: {
@@ -131,7 +111,15 @@ export default {
     heade
   },
   mounted(){
-  }
+    this.axios.get("http://172.25.1.228:8080/carRental_war_exploded/carController/findAllCar").then((res)=>{
+      if(res.status==200){
+        // this.list=res.data;
+        console.log(res.data);
+
+        
+      }
+    })
+  },
 }
 </script>
 
@@ -240,7 +228,8 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
+  flex-wrap: nowrap;
   .map {
     height: 7.18rem;
     width: 100%;
