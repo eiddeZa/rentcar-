@@ -2,7 +2,7 @@
   <div class="shai">
     <div>
       <heade txt="车型筛选">
-        <img src="./image/返回按钮.png" slot="left" alt class="leftImg" />
+          <img src="./image/返回按钮.png" slot="left" @click="tiao" class="leftImg" />
       </heade>
       <div></div>
       <div class="navbar">
@@ -10,22 +10,22 @@
           <router-link to="/ssum" tag="li">
             <span>全部</span>
           </router-link>
-          <router-link to="/ssum" tag="li">
+          <router-link to="/jingji" tag="li">
             <span>经济型</span>
             <span></span>
           </router-link>
-          <router-link to="/ssum" tag="li">
+          <router-link to="/shangwu" tag="li">
             <span>商务型</span>
             <span></span>
-         </router-link>
-          <router-link to="/ssum" tag="li">
+          </router-link>
+          <router-link to="/haohua" tag="li">
             <span>豪华型</span>
             <span></span>
           </router-link>
-          <router-link to="/ssum" tag="li">
+          <li>
             <span>筛选</span>
             <span></span>
-          </router-link>
+          </li>
         </ul>
       </div>
       <div class="wenxin">
@@ -40,7 +40,9 @@
       <van-loading type="spinner" vertical :color="tcolor" v-if="loading">{{count}}</van-loading>
       <betterscroll :scrollTop="scrollTop" :scrollEnd="scrollEnd">
         <keep-alive>
-          <router-view />
+          <transition mode="out-in">
+            <router-view />
+          </transition>
         </keep-alive>
       </betterscroll>
     </div>
@@ -62,6 +64,9 @@ export default {
     };
   },
   methods: {
+    tiao(){
+      this.$router.go(-1);
+    },
     scrollTop(obj) {
       //  console.log(obj.y);
       if (obj.y > 50) {
@@ -72,7 +77,8 @@ export default {
       if (obj.y > 50) {
         this.tcolor = "#1989fa";
         this.count = "正在刷新请稍后......";
-        setTimeout(() => {//在此处写axios请求数据
+        setTimeout(() => {
+          //在此处写axios请求数据
           this.$toast("刷新成功");
           this.loading = false;
           this.tcolor = "transparent";
@@ -96,6 +102,19 @@ export default {
 </script>
 
 <style scoped lang="less">
+//动画属性
+.v-enter,
+.v-leave-to {
+  /*定义动画开始之前的样式和动画结束之后的样式*/
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.v-enter-active,
+.v-leave-active {
+  /*定义进入动画的过程和离开动画的过程*/
+  transition: all 0.6s ease;
+}
+//样式属性
 .shai {
   height: 100%;
   display: flex;
@@ -147,12 +166,16 @@ export default {
     align-items: flex-end;
     width: 20%;
     color: #333;
+
     span:nth-of-type(2) {
       height: 0;
       width: 0;
       border: 0.08rem solid transparent;
       border-top-color: #676767;
     }
+  }
+  li.router-link-active {
+    color: #fee10b;
   }
 }
 </style>
