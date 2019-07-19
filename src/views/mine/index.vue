@@ -1,28 +1,29 @@
 <template>
-  <div class="mine_index" >
-    <Header txt='我的'>
-      <router-link slot="left" class="leftImg" to='/'><img src="./img/iconleft.png"  /></router-link>
+  <div class="mine_index">
+    <Header txt="我的">
+      <router-link slot="left" class="leftImg" to="/">
+        <img src="./img/iconleft.png" />
+      </router-link>
       <img src="./img/icon-mes@2x.png" class="rightImg" slot="right" />
     </Header>
     <div class="user_text">
-      <div class="icon_user" >
-      <van-uploader  :max-count="2" >
-     <van-button icon="photo" type="primary"></van-button>
-    </van-uploader>
+      <div class="icon_user">
+        <van-uploader :max-count="2">
+          <van-button icon="photo" type="primary"></van-button>
+        </van-uploader>
       </div>
       <div class="u_txt">
         <span class="user_num">{{user_num | encode}}</span>
         <span class="un_renzheng">{{rezheng_bool}}</span>
       </div>
       <van-button type="primary" @click="showPopup" class="sign" :disabled="shyi">
-        <span v-show="sh">签到</span>
-        <span v-show='shyi'>已签</span>
+        <span v-show="sh" class="qian">签到</span>
+        <span v-show="shyi" class="qian">已签</span>
         <img src="./img/icon-enter@2x.png" class="icon_sign" />
-        </van-button>
+      </van-button>
       <van-popup v-model="show">
-        <img src="./img/mine1.png" class="qiandao">
+        <img src="./img/mine1.png" class="qiandao" />
       </van-popup>
-     
     </div>
     <List></List>
     <Footer></Footer>
@@ -36,10 +37,10 @@ import Footer from "./component/mine_footer";
 export default {
   filters: {
     // 过滤器  加密 用户账号
-    encode:function(val) {
+    encode: function(val) {
       val = val.toString();
       console.log(val);
-      let jiami_num = val.substring(0,4) + '***' +val.substring(7);
+      let jiami_num = val.substring(0, 4) + "***" + val.substring(7);
       console.log(jiami_num);
       return jiami_num;
     }
@@ -48,21 +49,19 @@ export default {
     return {
       user_num: 18889093456,
       rezheng_bool: "未认证",
-       show: false,
-       sh:true,
-       shyi:false
-        
+      show: false,
+      sh: true,
+      shyi: false
     };
   },
   methods: {
-    
-     showPopup() {
+    showPopup() {
       //  console.log(1);
       this.show = true;
-      this.sh=false;
-      this.shyi=true;
+      this.sh = false;
+      this.shyi = true;
       //加积分
-       this.$store.commit('add_jifen',200)
+      this.$store.commit("add_jifen", 200);
     }
   },
   components: {
@@ -75,18 +74,18 @@ export default {
 
 <style scoped lang='less'>
 .mine_index {
-  /deep/.van-button--normal{
+  /deep/.van-button--normal {
     width: 1.6rem;
     height: 1.6rem;
   }
-  /deep/.van-button--primary{
+  /deep/.van-button--primary {
     background: url("./img/img@2x.png") no-repeat center center;
     background-size: 100% 100%;
   }
-  /deep/.van-icon::before{
-    display:none;
+  /deep/.van-icon::before {
+    display: none;
   }
-  /deep/.van-uploader__preview-image{
+  /deep/.van-uploader__preview-image {
     width: 1.6rem;
     height: 1.6rem;
   }
@@ -97,7 +96,7 @@ export default {
     .icon_user {
       float: left;
       border-radius: 50%;
-       width: 1.6rem;
+      width: 1.6rem;
       height: 1.6rem;
       overflow: hidden;
     }
@@ -129,30 +128,42 @@ export default {
       width: 1.76rem;
       height: 0.6rem;
       margin: 0.5rem 0;
-      color:#333333;
+      color: #333333;
       background: #ffe009;
       border-radius: 0.3rem;
-      .qiandao{
+          border: none;
+      .qiandao {
         width: 7.18rem;
       }
-      /deep/.van-button__text{
+      /deep/.van-button__text {
         display: flex;
+        .qian {
+          display: block;
+          width: 1.2rem;
+          height: 0.6rem;
+          line-height: 0.6rem;
+          font-size: 0.3rem;
+        }
       }
       .icon_sign {
-        width: 0.44rem;
-        height: 0.44rem;
-        margin-left: 0.15rem;
+        width: 0.4rem;
+        height: 0.4rem;
+        margin: .1rem 0 0 0;
       }
     }
   }
-    /deep/.van-popup{
-        background: none;
-
-      }
-      /deep/.van-popup--center{
-        top:2.63rem;
-        left:.5rem;
-        transform: none;
-      }
+  /deep/.van-popup {
+    background: none;
+  }
+  /deep/.van-popup--center {
+    top: 2.63rem;
+    left: 0.5rem;
+    transform: none;
+  }
+  /deep/.van-button--primary {
+    color: #fff;
+    background-color:none; 
+    border:none;
+  }
 }
 </style>
