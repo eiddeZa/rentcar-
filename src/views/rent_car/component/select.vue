@@ -14,7 +14,7 @@
 
    </div>
     <div class="shop">
-     <span>郑州</span>
+     <span @click="shop">郑州</span>
      <img src="./../img/icon2.png" alt="">
      <span>请选择门店</span>
      <div class="menu">
@@ -108,6 +108,10 @@ $(document).on("touchend", function(e) {
       console.log(2222);
       this.$router.push('/cityChoose')
       
+    },
+    shop(){
+      console.log(4444);
+      this.$router.push('/mendianxuan')
     }
 
   },
