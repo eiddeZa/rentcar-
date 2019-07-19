@@ -37,7 +37,7 @@ portrait(){
 
 this.axios
         .post(
-          "http://172.25.1.227:8080/carRental/accountController/findHeadPortraitByPhone",
+          this.ID+"carRental/accountController/findHeadPortraitByPhone",
           qs.stringify({
               userPhone: this.user
           }),
@@ -66,7 +66,7 @@ this.axios
   (this.password = this.password);
  this.axios
         .post(
-          "http://172.25.1.227:8080/carRental/accountController/login",
+          this.ID+"carRental/accountController/login",
           qs.stringify({
               userPhone: this.user,
               accountPassword: this.password

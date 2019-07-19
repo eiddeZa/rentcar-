@@ -1,9 +1,7 @@
 <template>
-  <div class="mine_index">
-    <Header txt="我的">
-      <router-link slot="left" class="leftImg" to="/">
-        <img src="./img/iconleft.png" />
-      </router-link>
+  <div class="mine_index" >
+    <Header txt='我的'>
+      <router-link slot="left" class="leftImg" to='/shouye'><img src="./img/iconleft.png"  /></router-link>
       <img src="./img/icon-mes@2x.png" class="rightImg" slot="right" />
     </Header>
     <div class="user_text">

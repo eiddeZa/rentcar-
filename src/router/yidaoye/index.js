@@ -1,4 +1,4 @@
 export default{
-    path:'/guidepage',
+    path:'/',
     component:()=> import ('@/views/yindaoye/guidepage.vue')
     }
