@@ -1,7 +1,7 @@
 <template>
   <div class="myWallet">
 <Header txt='我的钱包'>
-     <router-link slot="left" class="leftImg" to='/'><img src="./img/iconleft.png"></router-link>
+     <router-link slot="left" class="leftImg" to='/shouye'><img src="./img/iconleft.png"></router-link>
 </Header>
 <Showmoney></Showmoney>
 <Moneyclass></Moneyclass>

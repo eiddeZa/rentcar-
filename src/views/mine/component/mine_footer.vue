@@ -2,7 +2,7 @@
   <div class="mine_footer">
      <span class="f_box">
          <keep-alive>
-         <router-link to="/">
+         <router-link to="">
         <img src="../img/icon-9@2x.png" class="icon_f">
          <span class="f_text">设置</span>
          </router-link>
@@ -10,7 +10,7 @@
      </span>
       <span class="f_box">
            <keep-alive>
-           <router-link to="/">
+           <router-link to="">
          <img src="../img/wendu.png" class="icon_w">
          <span class="f_text">金水</span>
            </router-link>

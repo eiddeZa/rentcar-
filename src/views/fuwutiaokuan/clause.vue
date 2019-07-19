@@ -1,7 +1,7 @@
 <template>
  <div>
      <Hend txt="服务条款与隐私条款">
-        <router-link class="leftImg" slot="left" to="/register"><img src="./img/icon-come back@2x.png" alt=""></router-link>
+         <img @click="gotop()" class="leftImg" slot="left" src="./img/icon-come back@2x.png" alt="">
      </Hend>
      <div class="text-c">
          <p :key="id" v-for="(item,id) in arr_text">{{item}}</p>
@@ -33,7 +33,9 @@ export default {
  }
  },
  methods: {
-
+        gotop(){
+             this.$router.go(-1);
+        }
  },
  components: {
     Hend

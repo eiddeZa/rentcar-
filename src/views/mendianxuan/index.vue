@@ -1,7 +1,7 @@
 <template>
   <div class="mendian">
       <heade txt="门店选择">
-        <img src="./image/返回按钮.png" slot="left" alt class="leftImg" />
+        <router-link to="/shouye" slot="left" class="leftImg"> <img src="./image/返回按钮.png"  alt/></router-link>
       </heade>
       <div class="serch">
           <input type="text" placeholder="输入地址寻找周边门店">
