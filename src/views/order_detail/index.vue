@@ -94,7 +94,7 @@
           </router-link >
         </keep-alive>
         <keep-alive>
-          <router-link to="/">
+          <router-link to="/evaluate">
             <span>预定评价</span>
           </router-link>
         </keep-alive>
@@ -205,9 +205,9 @@ this.axios.get('./../../../static/json/detail.json').then((res)=>{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-     margin-top: 0.44rem;
+     margin-top: 0.24rem;
       font-size: 0.25rem;
-      margin-bottom: 0.81rem;
+      margin-bottom: 0.2rem;
       border-bottom: none;
       padding: 0 1.18rem;
      

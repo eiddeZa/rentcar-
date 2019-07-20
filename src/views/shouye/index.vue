@@ -114,10 +114,10 @@ export default {
     heade
   },
   mounted(){
-    this.axios.get("http://172.25.1.220:8080/carRental_war_exploded/carController/find4Car").then((res)=>{
+    this.axios.get("http://172.25.5.219:8080/carRental_war_exploded/carController/find4Car").then((res)=>{
       if(res.status==200){
-        this.list=res.data;
-        // console.log(res.data);
+        // this.list=res.data;
+        console.log(res.data);
       }
     })
   },

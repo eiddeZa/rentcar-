@@ -13,7 +13,7 @@
   </van-cell-group>
 </van-radio-group>
 
-<P class="ch_xieyi">点击充值即表示你已同意<a href="#">《平价租车协议》</a></P>
+<P class="ch_xieyi">点击充值即表示你已同意<router-link to="/clause">《平价租车协议》</router-link></P>
   </div>
 </template>
 

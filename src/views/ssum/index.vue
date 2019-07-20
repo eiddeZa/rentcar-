@@ -3,6 +3,8 @@
    <li class="fist"><loadding/></li>
    <li v-for="(item,index) in list" :key="index" @tap="fnnn">
      <div class="imgs"><img :src="item.car.carPicture" alt=""></div>
+   <li @tap="tag">
+     <div class="imgs"><img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt=""></div>
       <div class="mssg">
         <p>{{item.car.carName}}</p>
         <p>
@@ -35,10 +37,10 @@ export default {
     }
   },
   methods: {
-    fnnn(){
-      //不要删除此方法,否则下拉刷新有问题,TODO:待解决
-      console.log("123");
+     tag(){
+      this.$router.push({path:"/rentCar",query:{title:"lalala"}})
     }
+    
   },
   components: {
 // betterscroll?

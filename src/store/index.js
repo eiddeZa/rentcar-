@@ -47,7 +47,7 @@ export default new Vuex.Store({
    
   },
   add_jine(state,v){
-    state.jine += v;
+    state.jine = v;
   }
   },
   actions: {

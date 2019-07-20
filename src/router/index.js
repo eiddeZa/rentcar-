@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import mendianxuan from './mendianxuan'
 import shaixuan from './shaixuan'
 
+import Tianqi from './tianqi' //天气页面
 import Mine from './mine' //我的页面
 import Chongzhi from './chongzhi'  //充值页面
 import success from './succ' //充值成功
@@ -21,6 +22,7 @@ import clause from './fuwutiaokuan/index.js'//服务条款
 // import Landing from '@/views/pingjia/evaluate.vue';
 import Landing from '@/views/denglu_zhuce/landing.vue';
 import shouye from './shouye'//首页
+import SuccessPay from './success_pay'
 // import Landing from '@/views/denglu_zhuce/landing.vue';
 // import Landing from '@/views/denglu_zhuce/registers.vue';
 Vue.use(Router)
@@ -44,7 +46,9 @@ export default new Router({
     shouye,
     guidepage,
     clause,
-    success
+    success,
+    SuccessPay ,//支付成功
+    Tianqi
 	
   ]
 })
