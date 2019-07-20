@@ -1,6 +1,8 @@
 <template>
  <div class="box">
     <Hend txt="评价">
+         <router-link class="leftImg" slot="left" to="/orderDetail"><img src="./img/left@2.png" alt=""></router-link>
+         <router-link class="rightImg" slot="right" to=""><img src="./img/zu@2.png" alt=""></router-link>
          <img @click="shangtop()" class="leftImg" slot="left" src="./img/left@2.png" alt=""> 
          <router-link class="rightImg" slot="right" to="/clause"><img src="./img/zu@2.png" alt=""></router-link>
     </Hend>  

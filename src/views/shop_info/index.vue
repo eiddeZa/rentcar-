@@ -68,7 +68,7 @@
          <keep-alive><router-link to=""> <span>查看更多评价</span> <van-icon name="arrow" /></router-link></keep-alive>
      </div>
      <div class="rent">
-         <keep-alive><router-link to="/ssum"><span>立即租车</span>  </router-link></keep-alive>  
+         <keep-alive><router-link to="/ssum"><span>立即选车</span>  </router-link></keep-alive>  
      </div>
       
     </div>
@@ -268,7 +268,7 @@ font-size: .4rem;
   }
   .rent{
       font-size: 0;
-      margin-top: 1.68rem;
+      margin-top: 1rem;
       margin-bottom: .6rem;
       width: 100%;
       height: 1rem;

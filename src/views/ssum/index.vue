@@ -1,6 +1,6 @@
 <template>
  <ul>
-   <li>
+   <li @tap="tag">
      <div class="imgs"><img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt=""></div>
       <div class="mssg">
         <p>雪佛兰科鲁兹</p>
@@ -75,6 +75,9 @@ export default {
     }
   },
   methods: {
+     tag(){
+      this.$router.push({path:"/rentCar",query:{title:"lalala"}})
+    }
     
   },
   components: {

@@ -22,6 +22,7 @@ import clause from './fuwutiaokuan/index.js'//服务条款
 // import Landing from '@/views/pingjia/evaluate.vue';
 import Landing from '@/views/denglu_zhuce/landing.vue';
 import shouye from './shouye'//首页
+import SuccessPay from './success_pay'
 // import Landing from '@/views/denglu_zhuce/landing.vue';
 // import Landing from '@/views/denglu_zhuce/registers.vue';
 Vue.use(Router)
@@ -46,6 +47,7 @@ export default new Router({
     guidepage,
     clause,
     success,
+    SuccessPay ,//支付成功
     Tianqi
 	
   ]
