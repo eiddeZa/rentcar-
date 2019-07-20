@@ -1,24 +1,22 @@
 <template>
  <ul>
-   <li class="fist"><loadding/></li>
-   <li v-for="(item,index) in list" :key="index" @tap="fnnn">
-     <div class="imgs"><img :src="item.car.carPicture" alt=""></div>
-   <li @tap="tag">
-     <div class="imgs"><img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt=""></div>
+   <li class="fist" v-if="iss"><loadding/></li>
+   <li v-for="(item,index) in list" :key="index" @tap="fnnn(item)">
+     <div class="imgs"><img :src="item.carPicture" alt=""></div>
       <div class="mssg">
-        <p>{{item.car.carName}}</p>
+        <p>{{item.carName}}</p>
         <p>
-          <span>{{item.car.compartment}}厢</span>
-          <span>{{item.car.emissions}}{{item.cartype.type}}</span>
-          <span>可乘坐{{item.carseats.seat}}人</span>
+          <span>{{item.compartment}}厢</span>
+          <span>{{item.emissions}}自动</span>
+          <span>可乘坐{{item.compartment}}人</span>
         </p>
         <div>
           <p>
-            <span>{{item.car.carRentH}}元</span>
+            <span>{{item.carRentH}}元</span>
             /时租
           </p>
           <p>
-            <span>{{item.car.carRentD}}元</span>
+            <span>{{item.carRentD}}元</span>
             /日租
           </p>
         </div>
@@ -33,25 +31,36 @@ import loadding from '@/components/loadding'
 export default {
   data() {
     return {
-        list:[]
+        list:[],
+        iss:true
     }
   },
   methods: {
-     tag(){
-      this.$router.push({path:"/rentCar",query:{title:"lalala"}})
-    }
-    
+     fnnn(item){
+      this.$router.push({path:"/rentCar"})
+      this.$store.commit("setchexing",item);
+    },
   },
   components: {
 // betterscroll?
   loadding
   },
   mounted () {
-     this.axios.get("http://172.25.1.221:8080/carRental_war_exploded/carController/findCar").then((res)=>{
-       if(res.status==200){
-         this.list=res.data;
-       }
-    })
+    
+    if(window.localStorage.getItem("ssumlist")==null){
+      console.log(12443)
+        this.axios.get("http://172.25.5.219:8080/carRental_war_exploded/backstage/prearrange").then((res)=>{
+          if(res.status==200){
+            this.list=res.data;
+            this.iss=false;
+            window.localStorage.setItem("ssumlist",JSON.stringify(res.data))
+        }
+      })
+    }else{
+      this.list=JSON.parse( window.localStorage.getItem("ssumlist"));
+      this.iss=false;
+    }
+    
   }
 }
 </script>
