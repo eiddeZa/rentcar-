@@ -14,7 +14,9 @@ export default new Vuex.Store({
     tianshu:'2天',
     get_time:new Date(),
     chosedcity:"郑州",
-    jine:0
+    jine:0,
+    Phone:"",
+    top_img:""
   },
   mutations: {
     //签到加积分200
@@ -48,6 +50,11 @@ export default new Vuex.Store({
   },
   add_jine(state,v){
     state.jine = v;
+  },
+  updateid(state,da){
+    state.Phone=da[0],
+    state.top_img=da[1]
+    console.log(state.Phone);
   }
   },
   actions: {

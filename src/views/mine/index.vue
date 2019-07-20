@@ -8,12 +8,10 @@
     </Header>
     <div class="user_text">
       <div class="icon_user">
-        <van-uploader :max-count="1" v-model="fileList">
-          <van-button icon="photo" type="primary"></van-button>
-        </van-uploader>
+       <img :src="$store.state.top_img" alt="">
       </div>
       <div class="u_txt">
-        <span class="user_num">{{userPhone | encode}}</span>
+        <span class="user_num">{{$store.state.Phone | encode}}</span>
         <span class="un_renzheng">{{rezheng_bool}}</span>
       </div>
       <van-button type="primary" @click="showPopup()" class="sign">
@@ -57,9 +55,10 @@ export default {
       show: false,
       sh: true,
       shyi: false,
-       userPhone:18937625809,
-      fileList: []
     };
+  },
+  mounted(){
+      
   },
   methods: {
     showPopup() {
@@ -72,30 +71,6 @@ export default {
       this.sh = false;
       this.shyi = true;
       this.$store.commit("add_jifen",200);
-      //  this.axios
-      //   .post(
-      //     "http://172.25.1.225:8080/carRental_war_exploded/accountController/addIntegral",
-      //     qs.stringify({
-      //         userPhone: this.userPhone
-      //     }),
-      //     {
-      //       headers: {
-      //          'Content-Type': 'application/x-www-form-urlencoded'
-      //       }
-      //     }
-      //   )
-      //   .then(
-      //     res => {
-      //       console.log(res.data.integral);
-      //       this.jifen=res.data.integral;
-      //        console.log(this.jifen);
-            
-      //     },
-      //     err => {
-      //       console.log(err);
-      //     }
-      //   );
-      
     }
   },
   components: {

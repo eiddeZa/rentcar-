@@ -29,7 +29,7 @@ import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 Vue.config.productionTip = false
 /* eslint-disable no-new */
-window.ID="http://172.25.1.220:8080/carRental_war_exploded/accountController/";
+window.ID="http://172.25.5.219:8080/";
 new Vue({
   el: '#app',
   router,
