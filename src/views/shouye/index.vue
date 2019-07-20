@@ -18,10 +18,10 @@
       <div class="foot">
         <ul>
           <li v-for="(item,index) in list" :key="index">
-            <img :src="item.image" alt="">
+            <img :src="item.carPicture" alt="">
             <div>
-              <p>{{item.title}}</p>
-              <p>日租价:<span>&yen;{{item.primary}}</span></p>
+              <p>{{item.carName}}</p>
+              <p>日租价:<span>&yen;{{item.carRentD}}</span></p>
             </div>
           </li>
         </ul>
@@ -105,7 +105,7 @@ export default {
     }
   },
   methods: {
-  showren(){
+    showren(){
       this.meng=false;
       this.$router.push("/rentCar");
     }
@@ -114,12 +114,10 @@ export default {
     heade
   },
   mounted(){
-    this.axios.get(window.ID+"findAllCar").then((res)=>{
+    this.axios.get("http://172.25.5.219:8080/carRental_war_exploded/carController/find4Car").then((res)=>{
       if(res.status==200){
         // this.list=res.data;
         console.log(res.data);
-
-        
       }
     })
   },
@@ -135,6 +133,7 @@ export default {
     height: 100%;
     background: rgba(0,0,0,.7);
     z-index: 9999;
+    bottom: 0;
     ul{
       position: absolute;
       width: 100%;
@@ -221,6 +220,9 @@ export default {
           div>p:last-of-type{
             font-size: .18rem;
           }
+          div{
+            p{text-align: left;}
+          }
           img{
             width: 1.28rem;
             margin-right: .32rem;
@@ -230,7 +232,7 @@ export default {
   }
   display: flex;
   flex-direction: column;
-  height: 100%;
+  // height: 100%;
   overflow: auto;
   flex-wrap: nowrap;
   .map {

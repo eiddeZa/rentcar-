@@ -3,7 +3,7 @@
     <div class="shop">
       <Header txt="门店详情">
         <!-- <span >dhdhddd</span> -->
-        <img src="./img/back.png" slot="left" class="leftImg" alt />
+        <img @click="topf" src="./img/back.png" slot="left" class="leftImg" alt />
         <img src slot="right" class="rightImg" alt />
       </Header>
     </div>
@@ -19,7 +19,7 @@
         </p>
       </div>
       <div class="rate">
-        <van-rate v-model="value" :size="20" :count="5" allow-half />
+        <van-rate v-model="value" :size="20" :count="5" allow-half  readonly/>
         <span>{{value*20}}评分</span>
         <keep-alive>
           <router-link to="">
@@ -60,7 +60,7 @@
               <span>156********89</span>
               <span>最新</span>
               <span>服务态度</span>
-              <van-rate v-model="value" :size="10" :count="5" allow-half />
+              <van-rate v-model="value" :size="10" :count="5" allow-half readonly/>
               <p>情况不错，租车方便快捷，如果能有租车到家的话就更好了。那样更方便</p>
           </div>
       </div>
@@ -93,6 +93,9 @@ export default {
     //    onChange(index) {
     //   this.index = index;
     // }
+    topf(){
+    this.$router.go(-1);
+    }
   },
   components: {
     Header

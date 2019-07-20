@@ -1,63 +1,24 @@
 <template>
  <ul>
+   <li class="fist"><loadding/></li>
+   <li v-for="(item,index) in list" :key="index" @tap="fnnn">
+     <div class="imgs"><img :src="item.car.carPicture" alt=""></div>
    <li @tap="tag">
      <div class="imgs"><img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt=""></div>
       <div class="mssg">
-        <p>雪佛兰科鲁兹</p>
+        <p>{{item.car.carName}}</p>
         <p>
-          <span>三厢</span>
-          <span>1.5自动</span>
-          <span>可乘坐5人</span>
+          <span>{{item.car.compartment}}厢</span>
+          <span>{{item.car.emissions}}{{item.cartype.type}}</span>
+          <span>可乘坐{{item.carseats.seat}}人</span>
         </p>
         <div>
           <p>
-            <span>69元</span>
+            <span>{{item.car.carRentH}}元</span>
             /时租
           </p>
           <p>
-            <span>269元</span>
-            /日租
-          </p>
-        </div>
-      </div>
-   </li>
-   <li>
-     <div class="imgs"><img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt=""></div>
-      <div class="mssg">
-        <p>雪佛兰科鲁兹</p>
-        <p>
-          <span>三厢</span>
-          <span>1.5自动</span>
-          <span>可乘坐5人</span>
-        </p>
-        <div>
-          <p>
-            <span>69元</span>
-            /时租
-          </p>
-          <p>
-            <span>269元</span>
-            /日租
-          </p>
-        </div>
-      </div>
-   </li>
-   <li>
-     <div class="imgs"><img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt=""></div>
-      <div class="mssg">
-        <p>雪佛兰科鲁兹</p>
-        <p>
-          <span>三厢</span>
-          <span>1.5自动</span>
-          <span>可乘坐5人</span>
-        </p>
-        <div>
-          <p>
-            <span>69元</span>
-            /时租
-          </p>
-          <p>
-            <span>269元</span>
+            <span>{{item.car.carRentD}}元</span>
             /日租
           </p>
         </div>
@@ -68,10 +29,11 @@
 
 <script>
 import betterscroll from '@/components/betterscroll'
+import loadding from '@/components/loadding'
 export default {
   data() {
     return {
-        
+        list:[]
     }
   },
   methods: {
@@ -82,12 +44,14 @@ export default {
   },
   components: {
 // betterscroll?
+  loadding
   },
   mounted () {
-    // var scroll=new BS(this.$refs.movie_body,{
-    //   tap:true,
-    //   probeType:1
-    // })
+     this.axios.get("http://172.25.1.221:8080/carRental_war_exploded/carController/findCar").then((res)=>{
+       if(res.status==200){
+         this.list=res.data;
+       }
+    })
   }
 }
 </script>
@@ -116,6 +80,8 @@ ul{
       text-align: center;
       display: block;
       margin: 0 auto;
+      width: 2.2rem;
+      height: 2.2rem;
       }
     }
     .mssg{

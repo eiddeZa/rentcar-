@@ -25,7 +25,6 @@ export default {
     return {
     moni_show:false,
     userPhone:18937625809,
-    jinee:0,
     jine:[
       {num:30,boo:false},
       {num:50,boo:false},
@@ -41,31 +40,8 @@ export default {
   tiao(){
     this.moni_show=false;
     this.$router.push('/succ');
-     this.axios
-        .post(
-          "http://172.25.1.220:8080/carRental_war_exploded/accountController/updateAccountMoneyByPhone",
-          qs.stringify({
-              userPhone: this.userPhone,
-              accountMoney:this.jine[this.$store.state.chooseLi].num
-          }),
-          {
-            headers: {
-               'Content-Type': 'application/x-www-form-urlencoded'
-            }
-          }
-        )
-        .then(
-          res => {
-            console.log(res);
-            // this.url=res.data;
-            this.jinee=res.data;
-            console.log(res.data);
-             this.$store.commit('add_jine',this.jinee);
-          },
-          err => {
-            console.log(err);
-          }
-        );
+    this.$store.commit('add_jine',this.jine[this.$store.state.chooseLi].num);
+  
        
 
   },

@@ -15,11 +15,13 @@ export default new Vuex.Store({
     get_time:new Date(),
     chosedcity:"郑州",
     jine:0,
+    Phone:"",
+    top_img:""
   },
   mutations: {
     //签到加积分200
     add_jifen(state,v){
-      state.jifen=v; 
+      state.jifen+=v; 
   },
   //所选择的li的index
   chosedli(state,v){
@@ -48,6 +50,11 @@ export default new Vuex.Store({
   },
   add_jine(state,v){
     state.jine = v;
+  },
+  updateid(state,da){
+    state.Phone=da[0],
+    state.top_img=da[1]
+    console.log(state.Phone);
   }
   },
   actions: {
