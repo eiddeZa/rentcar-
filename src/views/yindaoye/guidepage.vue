@@ -1,9 +1,9 @@
 <template>
  <div class="box">
    <van-swipe style="height:100%;" vertical  :loop="false" indicator-color="#ffe009">
-        <van-swipe-item><img src="./img/introduction1.jpg" alt=""><router-link to=""><span class="skip"></span></router-link></van-swipe-item>
-        <van-swipe-item><img src="./img/introduction2.png" alt=""><router-link to=""><span class="skip"></span></router-link></van-swipe-item>
-        <van-swipe-item><img src="./img/introduction3.jpg" alt=""><router-link to=""><span class="enterinto "></span></router-link></van-swipe-item>
+        <van-swipe-item><img src="./img/introduction1.jpg" alt=""><router-link to="/register"><span class="skip"></span></router-link></van-swipe-item>
+        <van-swipe-item><img src="./img/introduction2.png" alt=""><router-link to="/register"><span class="skip"></span></router-link></van-swipe-item>
+        <van-swipe-item><img src="./img/introduction3.jpg" alt=""><router-link to="/register"><span class="enterinto "></span></router-link></van-swipe-item>
     </van-swipe>
  </div>
 </template>

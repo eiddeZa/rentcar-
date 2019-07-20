@@ -84,7 +84,7 @@ export default {
           //返回手机，获取验证码
     this.axios
         .post(
-          "http://172.25.1.227:8080/carRental/randomNumberController/randomNumber",
+          this.ID+"carRental/randomNumberController/randomNumber",
           qs.stringify({
               userPhone: this.user
           }),
@@ -158,7 +158,7 @@ export default {
       //axios
       this.axios
         .post(
-          "http://172.25.1.227:8080/carRental/accountController/registered",
+          this.ID+"carRental/accountController/registered",
           qs.stringify({
               userPhone: this.user,
               accountPassword: this.password,

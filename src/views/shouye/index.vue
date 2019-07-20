@@ -1,8 +1,8 @@
 <template>
   <div class="main">
     <heade txt="平价租车">
-      <img src="./image/矢量智能对象@3x.png" slot="left" class="leftImg" alt />
-      <img src="./image/矢量智能对象@3x(1).png" slot="right" class="rightImg" alt />
+      <router-link slot="left" to="/mine" class="leftImg"><img src="./image/矢量智能对象@3x.png" alt /></router-link>
+      <router-link slot="right" to="/clause" class="rightImg"><img src="./image/矢量智能对象@3x(1).png"  alt /></router-link>
     </heade>
     <div class="map">
      <el-amap 
@@ -33,7 +33,7 @@
     </div>
     <div class="tanchu" v-show="meng">
       <ul>
-        <li @click="showren">时间/日期</li>
+        <li @click="showren()">时间/日期</li>
         <li @click="meng=false">顺风车</li>
         <li @click="meng=false">取消</li>
       </ul>
@@ -118,8 +118,6 @@ export default {
       if(res.status==200){
         this.list=res.data;
         // console.log(res.data);
-
-        
       }
     })
   },

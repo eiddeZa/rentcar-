@@ -1,8 +1,8 @@
 <template>
  <div>
       <Hend>
-         <router-link class="leftImg" slot="left" to="/evaluate"><img src="./img/icon-come back@2x.png" alt=""></router-link>
-         <router-link class="rightImg" slot="right" to=""><img src="./img/icon-help@2x.png" alt=""></router-link>
+         <router-link class="leftImg" slot="left" to="/shouye"><img src="./img/icon-come back@2x.png" alt=""></router-link>
+         <router-link class="rightImg" slot="right" to="/clause"><img src="./img/icon-help@2x.png" alt=""></router-link>
      </Hend>
      <div class="form_box">
          <div class="img_box">

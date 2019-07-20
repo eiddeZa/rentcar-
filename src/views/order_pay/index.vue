@@ -22,7 +22,7 @@
         <ul>
           <li>
             取车城市：
-            <span>郑州</span>
+            <span>{{$store.state.chosedcity}}</span>
           </li>
           <li>
             取车门店：
@@ -81,10 +81,10 @@
         </van-dropdown-menu>
       </div>
       <div class="agree">
-  <van-checkbox v-model="checked">选中即表示您已同意<span>《平价租车协议》</span></van-checkbox>
+  <van-checkbox v-model="checked">选中即表示您已同意 <router-link to="/clause"><span>《平价租车协议》</span></router-link></van-checkbox>
       </div>
       <div class="submit">
-        <keep-alive><router-link to="/orderDetail"><span>提交/支付</span>  </router-link></keep-alive>  
+        <keep-alive><router-link to="/orderDetail"><span  @click="submit">提交/支付</span>  </router-link></keep-alive>  
       </div>
     </div>
   </div>
@@ -99,6 +99,8 @@ export default {
   data() {
     return {
       // tianshu:'3天',
+      order_num:null,
+      order_time:null,
       checked:true,
       radio: "1",
       value1: 0,
@@ -122,7 +124,26 @@ export default {
       }
     }
   },
-  methods: {},
+  methods: {
+    submit(){
+      const now = new Date();
+      let y = now.getFullYear().toString();
+      let m = padDate((now.getMonth()+1).toString());
+      let d = padDate(now.getDate().toString());
+      let h = now.getHours().toString();
+      let min = now.getMinutes().toString();
+      let s = now.getSeconds().toString();
+      console.log(m+'-'+d)
+      console.log(d+h)
+      console.log(3333)
+      this.order_num=y+m+d+h+min+s;
+      this.order_time=y+'-'+m+'-'+d;
+      this.$store.commit("orderNum",this.order_num)
+      this.$store.commit("orderTime",this.order_time)
+      console.log(this.order_num)
+      console.log(this.order_time)
+    }
+  },
   components: {
     Header
   }
@@ -258,7 +279,7 @@ export default {
   .agree{
    
     float: right;
-    margin-top: .78rem;
+    margin-top: .58rem;
  
  
     /deep/.van-checkbox__label{
@@ -285,8 +306,8 @@ font-size: .22rem;
     }
   }
   .submit{
-    margin-top: 2.55rem;
-    margin-bottom: .48rem;
+    margin-top: 1.6rem;
+    margin-bottom: .3rem;
     width: 100%;
     height: 1rem;
     font-size: .3rem;

@@ -7,10 +7,13 @@ export default new Vuex.Store({
   state: {
     jifen:0,  //积分
     chooseLi:0,
+    tianshu:'2天',//租车时长
+    get_time:new Date(),//取车时间
+    order_num:null,//订单号
+    order_time:null,//订单时间
     tianshu:'2天',
     get_time:new Date(),
-
-    choosedcity:"郑州",
+    chosedcity:"郑州",
     jine:0
   },
   mutations: {
@@ -22,11 +25,22 @@ export default new Vuex.Store({
   chosedli(state,v){
     state.chooseLi = v;
   },
+  //租车天数
   day(state,v){
     state.tianshu=v
   },
+  //取车时间
   getTime(state,v){
     state.get_time=v},
+    //订单号
+    orderNum(state,v){
+      state.order_num=v
+    },
+    //订单时间
+    orderTime(state,v){
+      state.order_time=v
+    },
+
   //所选择的城市名字
   chosed_c(state,v){
     state.chosedcity = v;
