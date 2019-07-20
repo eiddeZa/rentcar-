@@ -19,7 +19,7 @@ export default new Vuex.Store({
   mutations: {
     //签到加积分200
     add_jifen(state,v){
-      state.jifen+=v; 
+      state.jifen=v; 
   },
   //所选择的li的index
   chosedli(state,v){
@@ -47,7 +47,7 @@ export default new Vuex.Store({
    
   },
   add_jine(state,v){
-    state.jine += v;
+    state.jine = v;
   }
   },
   actions: {

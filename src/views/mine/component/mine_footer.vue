@@ -10,7 +10,7 @@
      </span>
       <span class="f_box">
            <keep-alive>
-           <router-link to="">
+           <router-link to="/tianqi">
          <img src="../img/wendu.png" class="icon_w">
          <span class="f_text">金水</span>
            </router-link>

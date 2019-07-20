@@ -1,7 +1,9 @@
 <template>
-  <div class="mine_index" >
-    <Header txt='我的'>
-      <router-link slot="left" class="leftImg" to='/shouye'><img src="./img/iconleft.png"  /></router-link>
+  <div class="mine_index">
+    <Header txt="我的">
+      <router-link slot="left" class="leftImg" to="/shouye">
+        <img src="./img/iconleft.png" />
+      </router-link>
       <img src="./img/icon-mes@2x.png" class="rightImg" slot="right" />
     </Header>
     <div class="user_text">
@@ -11,13 +13,15 @@
         </van-uploader>
       </div>
       <div class="u_txt">
-        <span class="user_num">{{user_num | encode}}</span>
+        <span class="user_num">{{userPhone | encode}}</span>
         <span class="un_renzheng">{{rezheng_bool}}</span>
       </div>
-      <van-button type="primary" @click="showPopup" class="sign" :disabled="shyi">
+      <van-button type="primary" @click="showPopup()" class="sign">
         <span v-show="sh" class="qian">签到</span>
-        <span v-show="shyi" class="qian">已签</span>
-        <img src="./img/icon-enter@2x.png" class="icon_sign" />
+        <span v-show="shyi" class="qian">已签到</span>
+        <span>
+          <img src="./img/icon-enter@2x.png" class="icon_sign" />
+        </span>
       </van-button>
       <van-popup v-model="show">
         <img src="./img/mine1.png" class="qiandao" />
@@ -32,35 +36,67 @@
 import Header from "../../components/header/header";
 import List from "./component/mList";
 import Footer from "./component/mine_footer";
+// import { Notify } from "vant";
+import { Toast } from 'vant';
+import $ from 'jquery';
+import qs from 'qs';
 export default {
   filters: {
     // 过滤器  加密 用户账号
     encode: function(val) {
       val = val.toString();
-      console.log(val);
+      // console.log(val);
       let jiami_num = val.substring(0, 4) + "***" + val.substring(7);
-      console.log(jiami_num);
+      // console.log(jiami_num);
       return jiami_num;
     }
   },
   data() {
     return {
-      user_num: 18889093456,
       rezheng_bool: "未认证",
       show: false,
       sh: true,
       shyi: false,
+       userPhone:18937625809,
+       jifen:0,
       fileList: []
     };
   },
   methods: {
     showPopup() {
+      if (this.shyi == true) {
+       Toast('今天已签到');
+        return;
+      }
       //  console.log(1);
       this.show = true;
       this.sh = false;
       this.shyi = true;
-      //加积分
-      this.$store.commit("add_jifen", 200);
+     
+       this.axios
+        .post(
+          "http://172.25.1.225:8080/carRental_war_exploded/accountController/addIntegral",
+          qs.stringify({
+              userPhone: this.userPhone
+          }),
+          {
+            headers: {
+               'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          }
+        )
+        .then(
+          res => {
+            console.log(res.data.integral);
+            this.jifen=res.data.integral;
+             console.log(this.jifen);
+             this.$store.commit("add_jifen",this.jifen);
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      
     }
   },
   components: {
@@ -125,13 +161,17 @@ export default {
       justify-content: center;
       align-items: center;
       font-size: 0.3rem;
-      width: 1.76rem;
+      // width: 1.76rem;
       height: 0.6rem;
+      padding: 0.1rem;
       margin: 0.5rem 0;
       color: #333333;
       background: #ffe009;
       border-radius: 0.3rem;
-          border: none;
+      border: none;
+      span {
+        display: block;
+      }
       .qiandao {
         width: 7.18rem;
       }
@@ -139,16 +179,15 @@ export default {
         display: flex;
         .qian {
           display: block;
-          width: 1.2rem;
-          height: 0.6rem;
-          line-height: 0.6rem;
+          // width: 1.2rem;
+          // height: 0.6rem;
+          // line-height: 0.6rem;
           font-size: 0.3rem;
         }
       }
       .icon_sign {
         width: 0.4rem;
         height: 0.4rem;
-        margin: .1rem 0 0 0;
       }
     }
   }
@@ -162,8 +201,11 @@ export default {
   }
   /deep/.van-button--primary {
     color: #fff;
-    background-color:none; 
-    border:none;
+    background-color: none;
+    border: none;
+  }
+  /deep/.van-button {
+    line-height: 0.4rem;
   }
 }
 </style>
