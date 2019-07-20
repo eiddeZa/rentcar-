@@ -114,7 +114,7 @@ export default {
     heade
   },
   mounted(){
-    this.axios.get(this.ID+"carRental_war_exploded/carController/findAllCar").then((res)=>{
+    this.axios.get(window.ID+"findAllCar").then((res)=>{
       if(res.status==200){
         // this.list=res.data;
         console.log(res.data);

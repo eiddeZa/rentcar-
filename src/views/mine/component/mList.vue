@@ -30,7 +30,7 @@ export default {
 <style scoped lang='less'>
 .mine_list{
     margin: 0 .32rem;
-    padding-bottom: 2.2rem;
+    padding-bottom: 1.1rem;
     li{
          font-size: 0;
          height: 1.1rem;

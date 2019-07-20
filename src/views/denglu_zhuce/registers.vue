@@ -49,7 +49,7 @@ export default {
       img_code: "",//头像
       count:"",
       timer:null,
-      s_code:""//判断验证码
+      // s_code:""//判断验证码
     };
   },
   methods: {
@@ -84,7 +84,7 @@ export default {
           //返回手机，获取验证码
     this.axios
         .post(
-          this.ID+"carRental/randomNumberController/randomNumber",
+          "http://172.25.1.220:8080/carRental_war_exploded/randomNumberController/randomNumber",
           qs.stringify({
               userPhone: this.user
           }),
@@ -98,14 +98,14 @@ export default {
           res => {
             this.s_code=res.data;
             console.log(res);
-            setTimeout(()=>{
-            Notify({
-              message:"你的验证码为："+res.data,
-              duration: 5000,
-              background: '#2fff09'
-            });
-            },10000)
-            console.log(this.s_code);
+            // setTimeout(()=>{
+            // Notify({
+            //   message:"你的验证码为："+res.data,
+            //   duration: 5000,
+            //   background: '#2fff09'
+            // });
+            // },10000)
+            // console.log(this.s_code);
           },
           err => {
             console.log(err);
@@ -146,19 +146,19 @@ export default {
         });
         return false;
       }
-      if(this.authcode!=this.s_code){
-        console.log(this.s_code);
-           Dialog.alert({
-                  message: "请输入正确的验证码！"
-                }).then(() => {
-                  // on close
-                });
-                return false;
-      }else{
+      // if(this.authcode!=this.s_code){
+      //   console.log(this.s_code);
+      //      Dialog.alert({
+      //             message: "请输入正确的验证码！"
+      //           }).then(() => {
+      //             // on close
+      //           });
+      //           return false;
+      // }else{
       //axios
       this.axios
         .post(
-          this.ID+"carRental/accountController/registered",
+          window.ID+"registered",
           qs.stringify({
               userPhone: this.user,
               accountPassword: this.password,
@@ -200,7 +200,8 @@ export default {
         );
     }
      }
-  },
+  // }
+  ,
   components: {
     lChild
   }

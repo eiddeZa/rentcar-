@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import mendianxuan from './mendianxuan'
 import shaixuan from './shaixuan'
 
+import Tianqi from './tianqi' //天气页面
 import Mine from './mine' //我的页面
 import Chongzhi from './chongzhi'  //充值页面
 import success from './succ' //充值成功
@@ -46,7 +47,8 @@ export default new Router({
     guidepage,
     clause,
     success,
-    SuccessPay //支付成功
+    SuccessPay ,//支付成功
+    Tianqi
 	
   ]
 })
