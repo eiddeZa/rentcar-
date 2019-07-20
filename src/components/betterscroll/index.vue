@@ -28,6 +28,7 @@ export default {
   },
   methods: {
     toscrolltop(y){
+      
       this.scroll.scrollTo(0,y);
       // console.log(this.scroll);
     }
@@ -41,7 +42,9 @@ export default {
     })
     this.scroll=scroll;
     scroll.on("scroll",(obj)=>{
+        console.log('000');
         this.scrollTop(obj);
+
     }),
     scroll.on("touchEnd",(obj)=>{
       this.scrollEnd(obj);

@@ -41,7 +41,9 @@
       <betterscroll :scrollTop="scrollTop" :scrollEnd="scrollEnd">
         <keep-alive>
           <transition mode="out-in">
+            <div>
             <router-view />
+            </div>
           </transition>
         </keep-alive>
       </betterscroll>
@@ -89,7 +91,7 @@ export default {
   },
   components: {
     heade,
-    betterscroll
+    betterscroll,
   },
   mounted() {
     setInterval(() => {
@@ -97,6 +99,7 @@ export default {
       var end = this.msg.substring(1);
       this.msg = end + str;
     }, 400);
+   
   }
 };
 </script>

@@ -58,7 +58,6 @@ export default {
       sh: true,
       shyi: false,
        userPhone:18937625809,
-       jifen:0,
       fileList: []
     };
   },
@@ -72,30 +71,30 @@ export default {
       this.show = true;
       this.sh = false;
       this.shyi = true;
-     
-       this.axios
-        .post(
-          "http://172.25.1.225:8080/carRental_war_exploded/accountController/addIntegral",
-          qs.stringify({
-              userPhone: this.userPhone
-          }),
-          {
-            headers: {
-               'Content-Type': 'application/x-www-form-urlencoded'
-            }
-          }
-        )
-        .then(
-          res => {
-            console.log(res.data.integral);
-            this.jifen=res.data.integral;
-             console.log(this.jifen);
-             this.$store.commit("add_jifen",this.jifen);
-          },
-          err => {
-            console.log(err);
-          }
-        );
+      this.$store.commit("add_jifen",200);
+      //  this.axios
+      //   .post(
+      //     "http://172.25.1.225:8080/carRental_war_exploded/accountController/addIntegral",
+      //     qs.stringify({
+      //         userPhone: this.userPhone
+      //     }),
+      //     {
+      //       headers: {
+      //          'Content-Type': 'application/x-www-form-urlencoded'
+      //       }
+      //     }
+      //   )
+      //   .then(
+      //     res => {
+      //       console.log(res.data.integral);
+      //       this.jifen=res.data.integral;
+      //        console.log(this.jifen);
+            
+      //     },
+      //     err => {
+      //       console.log(err);
+      //     }
+      //   );
       
     }
   },
