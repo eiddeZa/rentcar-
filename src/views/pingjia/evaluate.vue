@@ -1,8 +1,8 @@
 <template>
  <div class="box">
     <Hend txt="评价">
-         <router-link class="leftImg" slot="left" to=""><img src="./img/left@2.png" alt=""></router-link>
-         <router-link class="rightImg" slot="right" to=""><img src="./img/zu@2.png" alt=""></router-link>
+         <img @click="shangtop()" class="leftImg" slot="left" src="./img/left@2.png" alt=""> 
+         <router-link class="rightImg" slot="right" to="/clause"><img src="./img/zu@2.png" alt=""></router-link>
     </Hend>  
     <div class="ev_item">
         <div class="white">
@@ -22,7 +22,7 @@
          <div class="text_int">
             <textarea placeholder="您如果有其他的意见或建议，请放心填写"> </textarea>
           </div> 
-          <p class="btn_ti"><button>提&nbsp;交</button></p>
+          <p class="btn_ti"><button @click="sub()">提&nbsp;交</button></p>
         </div> 
     </div>   
    
@@ -40,12 +40,16 @@ var arr_btn=[
 ];
 import $ from 'jquery'
 import Hend from "../../components/header/header.vue"
+import qs from "qs"
 export default {
  data() {
  return {
     value: 4,
-    arr_btn
-
+    arr_btn,
+    star:4,
+    arr_btn2:[],
+    textbox:"",
+    time:""
  }
  },
  methods: {
@@ -53,19 +57,56 @@ export default {
          $("li").eq(i).toggleClass("border_act");
      },
      onchange(a){
-         console.log(a);
+         this.star=a;
          if(a<=1){
              $(".p_text").text("差评");
-            //  $("i").addClass("bgc1").removeClass("bgc2 bgc3");
          }else if(a>=1.5&&a<=4.5){
              $(".p_text").text("一般");
-            //  $("i").addClass("bgc2").removeClass("bgc1 bgc3");
-
          }else if(a==5){
             $(".p_text").text("好评");
-            // $("i").addClass("bgc3").removeClass("bgc1 bgc2");
-
          }
+     },
+     shangtop(){
+          this.$router.go(-1);
+     },
+     sub(){
+
+        this.arr_btn2=[];
+         this.textbox=$("textarea").val();
+        console.log(this.star);
+        console.log(this.textbox);
+        let li=$("li");
+        for(let i=0;i<li.length;i++){
+            if(li[i].className=="border_act"){
+                this.arr_btn2.push($("li").eq(i).text());
+            }
+        }
+        console.log(this.arr_btn2);
+
+this.axios
+        .post(
+          "http://172.25.1.43:8080/accountController/userEvaluate",
+          qs.stringify({
+             indentId:2019071913,
+             starlevel:this.star,
+             lable:this.arr_btn2,
+             opinion:this.textbox,
+          }),
+          {
+            headers: {
+               'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          }
+        )
+        .then(
+          res => {
+            console.log(res);
+          },
+          err => {
+            console.log(err);
+          }
+        );
+
      }
  },
  components: {

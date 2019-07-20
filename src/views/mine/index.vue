@@ -6,7 +6,7 @@
     </Header>
     <div class="user_text">
       <div class="icon_user">
-        <van-uploader :max-count="2">
+        <van-uploader :max-count="1" v-model="fileList">
           <van-button icon="photo" type="primary"></van-button>
         </van-uploader>
       </div>
@@ -49,7 +49,8 @@ export default {
       rezheng_bool: "未认证",
       show: false,
       sh: true,
-      shyi: false
+      shyi: false,
+      fileList: []
     };
   },
   methods: {
@@ -97,6 +98,7 @@ export default {
       width: 1.6rem;
       height: 1.6rem;
       overflow: hidden;
+      border: 0.02rem solid #ffec09;
     }
     .u_txt {
       display: flex;
