@@ -37,7 +37,7 @@ portrait(){
 
 this.axios
         .post(
-         window.ID+"findHeadPortraitByPhone",
+         window.ID+"carRental_war_exploded/accountController/findHeadPortraitByPhone",
           qs.stringify({
               userPhone: this.user
           }),
@@ -66,7 +66,7 @@ this.axios
   (this.password = this.password);
  this.axios
         .post(
-          window.ID+"login",
+          window.ID+"carRental_war_exploded/accountController/login",
           qs.stringify({
               userPhone: this.user,
               accountPassword: this.password
@@ -94,11 +94,12 @@ this.axios
                 }).then(() => {
                     // on close
                 });
+               this.$store.commit("updateid",res.data)
                this.user="";
                this.password="";
                this.url="";
-                this.$router.push({ path:'/shouye'});
-                return false;
+              this.$router.push({ path:'/shouye'});
+               return false;
             }
            
           },
