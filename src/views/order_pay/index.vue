@@ -111,6 +111,7 @@
 
 <script>
 import Header from "../../components/header/header.vue";
+import { Toast } from 'vant';
 var padDate = function(val) {
   return val < 10 ? "0" + val : val;
 };
@@ -159,6 +160,14 @@ export default {
       this.$router.push('/successPay')
     },
     submit(){
+       if(this.checked==false){
+        Toast('您还没有同意《平价租车协议》');
+        console.log('nnnnnnnn');
+        this.show=false;
+        console.log(this.show)
+      }
+   else{ console.log(this.checked)
+
       const now = new Date();
       let y = now.getFullYear().toString();
       let m = padDate((now.getMonth()+1).toString());
@@ -176,6 +185,8 @@ export default {
       console.log(this.order_num)
       console.log(this.order_time)
       this.show=true;
+     
+     }
     }
   },
   components: {

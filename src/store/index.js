@@ -14,7 +14,7 @@ export default new Vuex.Store({
     tianshu:'2天',
     get_time:new Date(),
     chosedcity:"郑州",
-    jine:0
+    jine:0,
   },
   mutations: {
     //签到加积分200
