@@ -84,8 +84,27 @@
   <van-checkbox v-model="checked">选中即表示您已同意 <router-link to="/clause"><span>《平价租车协议》</span></router-link></van-checkbox>
       </div>
       <div class="submit">
-        <keep-alive><router-link to="/orderDetail"><span  @click="submit">提交/支付</span>  </router-link></keep-alive>  
+        <keep-alive><router-link to="/orderPay"><span  @click="submit">提交/支付</span>  </router-link></keep-alive>  
       </div>
+      <div class="pay">
+        <van-action-sheet v-model="show" title="付款详情">
+        <p>订单编号：<span>{{$store.state.order_num}}</span></p>
+        <p>支付宝账号：<span>15729384178</span></p>
+        <p>付款方式：<span><span>账户余额</span> <img src="./img/icon_2.png" alt=""></span ></p>
+        <p>需付款：<span>300元</span></p>
+        <p @click="pay">确认付款</p>      
+        </van-action-sheet>
+      </div>
+      <!-- 支付弹窗 -->
+      <!-- <div class="num_pass">
+        <van-password-input
+  :value="value"
+  info="密码为 6 位数字"
+   @input="onInput"
+  @delete="onDelete"
+  @focus="showKeyboard = true"
+/> -->
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -99,6 +118,9 @@ export default {
   data() {
     return {
       // tianshu:'3天',
+      //   value: '',
+      // showKeyboard: false,
+        show: false,
       order_num:null,
       order_time:null,
       checked:true,
@@ -125,6 +147,17 @@ export default {
     }
   },
   methods: {
+     onInput(key) {
+      this.value = (this.value + key).slice(0, 6);
+    },
+    onDelete() {
+      this.value = this.value.slice(0, this.value.length - 1);
+    },
+    pay(){
+      console.log(99999);
+      this.show=false;
+      this.$router.push('/successPay')
+    },
     submit(){
       const now = new Date();
       let y = now.getFullYear().toString();
@@ -142,6 +175,7 @@ export default {
       this.$store.commit("orderTime",this.order_time)
       console.log(this.order_num)
       console.log(this.order_time)
+      this.show=true;
     }
   },
   components: {
@@ -323,6 +357,48 @@ font-size: .22rem;
       text-align: center;
       line-height: 1rem;
       }
+    }
+  }
+  /deep/.van-popup--bottom{
+    padding: .1rem .2rem;
+    font-size: 0;
+p:nth-child(4){
+  color: #000000;
+  border-bottom: none;
+  margin-bottom: .6rem;
+}
+p:nth-child(5){
+  width: 100%;
+  text-align: center;
+  height: 1rem;
+ color: #ffffff;
+ border-radius: .1rem;
+  background: #3aa3ff;
+}
+    p{
+    position: relative;
+
+      font-size: .3rem;
+      border-bottom: 1px solid #ccc;
+      padding: .25rem 0;
+      color: #999999;
+      
+      span{
+        float: right;
+        color:#000000;
+      //  display: none;
+      span{
+        float: left;
+        margin-right: .15rem;
+      }
+      img{
+        width: .15rem;
+        height: .3rem;
+        margin-top: .06rem;
+        vertical-align: middle;
+      }
+      }
+      
     }
   }
 </style>
