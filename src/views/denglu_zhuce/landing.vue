@@ -37,7 +37,7 @@ portrait(){
 
 this.axios
         .post(
-          this.ID+"carRental/accountController/findHeadPortraitByPhone",
+         window.ID+"findHeadPortraitByPhone",
           qs.stringify({
               userPhone: this.user
           }),
@@ -66,7 +66,7 @@ this.axios
   (this.password = this.password);
  this.axios
         .post(
-          this.ID+"carRental/accountController/login",
+          window.ID+"login",
           qs.stringify({
               userPhone: this.user,
               accountPassword: this.password
@@ -121,4 +121,5 @@ lChild
    background-color: #f9fafc;
     height: 100%;
 }
+
 </style>

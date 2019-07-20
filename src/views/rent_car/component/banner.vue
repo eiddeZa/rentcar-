@@ -21,7 +21,10 @@
           },
           autoplay:true,
           loop:true,
-          effect:'cube'
+          effect:'cube',
+            autoplay: {
+        disableOnInteraction: false
+    }
         }
       }
     },

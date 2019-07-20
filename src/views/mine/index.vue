@@ -8,7 +8,7 @@
     </Header>
     <div class="user_text">
       <div class="icon_user">
-        <van-uploader :max-count="2">
+        <van-uploader :max-count="1" v-model="fileList">
           <van-button icon="photo" type="primary"></van-button>
         </van-uploader>
       </div>
@@ -58,7 +58,8 @@ export default {
       sh: true,
       shyi: false,
        userPhone:18937625809,
-       jifen:0
+       jifen:0,
+      fileList: []
     };
   },
   methods: {
@@ -133,6 +134,7 @@ export default {
       width: 1.6rem;
       height: 1.6rem;
       overflow: hidden;
+      border: 0.02rem solid #ffec09;
     }
     .u_txt {
       display: flex;

@@ -2,13 +2,22 @@
   <div>
     <!-- <van-button type="primary" @click="showpopup">按钮</van-button> -->
     <div class="date">
-      <span ref="startTime" @click="showDatePicker('startTime')">{{date|formatDate}}</span>
+      <span ref="startTime" @click="showDatePicker('startTime')">{{startTime |formatDate}}</span>
       <img src="./../img/line1.jpg" alt />
-      <span ref="termEnd" @click="showDatePicker('endTime')">{{endTime |formatDate}}</span>
-     <p class="deration"> <span>{{tianshu}}</span></p></div>
+      <span ref="endTime" @click="showDatePicker('endTime')">{{endTime |formatDate}}</span>
+      <p class="deration">
+        <span>{{tianshu}}</span>
+      </p>
+    </div>
     <div class="time">
-       <p class="left_"><span>{{s_week}}</span> <span>{{s_h_m |formatTime}}</span></p>
-     <p class="right_"><span>{{f_week}}</span><span>{{f_h_m |formatTime}}</span></p>
+      <p class="left_">
+        <span>{{s_week}}</span>
+        <span>{{s_h_m |formatTime }}</span>
+      </p>
+      <p class="right_">
+        <span>{{f_week}}</span>
+        <span>{{f_h_m |formatTime}}</span>
+      </p>
     </div>
     <van-popup v-model="isPopShow" position="bottom">
       <!-- 开始时间 -->
@@ -49,13 +58,12 @@ export default {
       endTime: null, // 结束时间
       datePicker: "", // 用于判断哪个选择器的显示与隐藏
       isPopShow: false, // 弹出层隐藏与显示
-      tianshu:'0天',
-      s_week:null,
-      f_week:null,
-      s_h_m:null,
-      f_h_m:null,
-      flag:true
-
+      tianshu: "0天",
+      s_week: null,
+      f_week: null,
+      s_h_m: null,
+      f_h_m: null,
+      flag: true
     };
   },
   filters: {
@@ -78,9 +86,9 @@ export default {
         var hour = padDate(val.getHours());
         var minutes = padDate(val.getMinutes());
         var second = padDate(val.getSeconds());
-        return hour + ":" + minutes ;
+        return hour + ":" + minutes;
       }
-    },
+    }
   },
   methods: {
     showDatePicker(picker) {
@@ -94,88 +102,96 @@ export default {
       this.datePicker = "";
     },
     confirmPicker(value) {
-      // 确定按钮，时间格式化并显示在页面上
-      if(this.flag)
-     {this.date = value;
-     this.s_h_m=value;}
-     this.f_h_m=value;
-      this.endTime= value; 
-      // this.a=value;
-      //  var date = value;
-      //       var m = date.getMonth() + 1;
-      //       var d = date.getDate();
-      //       var h = date.getHours();
-      //       var m=date.getMinutes();
-      //       var s=date.getSeconds();
-      //       if (m >= 1 && m <= 9) {
-      //           m = "0" + m;
-      //       }
-      //       if (d >= 0 && d <= 9) {
-      //           d = "0" + d;
-      //       }
-      //       var timer = date.getFullYear() + "-" + m + "-" + d+h+'-'+m;
-      //       this.$refs[this.datePicker].innerHTML=timer;
+      //确定按钮，时间格式化并显示在页面上
+      //   if(this.flag)
+      //  {this.date = value;
+      //  this.s_h_m=value;}
+      //  this.f_h_m=value;
+      //   this.endTime= value;
+      this.a = value;
+      var date = value;
+      var m = date.getMonth() + 1;
+      var d = date.getDate();
+      var h = date.getHours();
+      var min = date.getMinutes();
+      var s = date.getSeconds();
+      if (m >= 1 && m <= 9) {
+        m = "0" + m;
+      }
+      if (d >= 0 && d <= 9) {
+        d = "0" + d;
+      }
+      var timer = m + "月" + d + "日" + h + ":" + min;
+      this.$refs[this.datePicker].innerHTML = timer.substr(0, 6);
       // this.date=timer;
       this.isPopShow = false;
       this.datePicker = "";
-      this.flag=!this.flag;
+      this.flag = !this.flag;
       console.log(value);
-      let f_date=this.endTime;
-      let s_date=this.date;
-      let f_time=f_date.getTime();
-      let s_time=s_date.getTime();
-      let day = parseInt((f_time-s_time)/1000/60/60/24);
-      this.tianshu=day+'天';
+      let f_date = this.endTime;
+      let s_date = this.startTime;
+      let f_time = f_date.getTime();
+      let s_time = s_date.getTime();
+      let day = parseInt((f_time - s_time) / 1000 / 60 / 60 / 24);
+      this.tianshu = day + "天";
       console.log(s_date);
-      console.log(day)
-      this.$store.commit('day',this.tianshu);
-      this.$store.commit('getTime',this.date);
-
-      switch(this.date.getDay()){
-      case 0:
-        this.s_week='周日';
-        case 1:
-          this.s_week='周一';
+      console.log(day);
+      this.$store.commit("day", this.tianshu);
+      this.$store.commit("getTime", this.startTime);
+  
+    this.s_h_m=this.startTime;
+    this.f_h_m=this.endTime;
+      console.log(this.startTime);
+      console.log(this.endTime);
+      console.log(this.startTime.getDay());
+      console.log(this.startTime.getHours());
+      switch (this.startTime.getDay()) {
+        case 0:
+          this.s_week = "周日";
           break;
-          case 2:
-            this.s_week='周二';
-            break;
-            case 3:
-              this.s_week='周三';
-              break;
-              case 4:
-                this.s_week='周四';
-                break;
-                case 5:
-                  this.s_week='周五';
-                  break;
-                  case 6:
-                    this.s_week='周六'
-                    break;
-    }
-     switch(this.endTime.getDay()){
-      case 0:
-        this.f_week='周日';
         case 1:
-          this.f_week='周一';
+          this.s_week = "周一";
           break;
-          case 2:
-            this.f_week='周二';
-            break;
-            case 3:
-              this.f_week='周三';
-              break;
-              case 4:
-                this.f_week='周四';
-                break;
-                case 5:
-                  this.f_week='周五';
-                  break;
-                  case 6:
-                    this.f_week='周六'
-                    break;
-    }
-    console.log(this.date.getDay())
+        case 2:
+          this.s_week = "周二";
+          break;
+        case 3:
+          this.s_week = "周三";
+          break;
+        case 4:
+          this.s_week = "周四";
+          break;
+        case 5:
+          this.s_week = "周五";
+          break;
+        case 6:
+          this.s_week = "周六";
+          break;
+      }
+      switch (this.endTime.getDay()) {
+        case 0:
+          this.f_week = "周日";
+          break;
+        case 1:
+          this.f_week = "周一";
+          break;
+        case 2:
+          this.f_week = "周二";
+          break;
+        case 3:
+          this.f_week = "周三";
+          break;
+        case 4:
+          this.f_week = "周四";
+          break;
+        case 5:
+          this.f_week = "周五";
+          break;
+        case 6:
+          this.f_week = "周六";
+          break;
+      }
+      console.log(this.date.getDay());
     },
     formatter(type, value) {
       // 格式化选择器日期
@@ -190,25 +206,25 @@ export default {
   components: {},
   mounted() {
     this.date = new Date();
-    this.endTime=new Date();
-          if(this.date.getDay() == 0) this.week = "周日";
+    this.endTime = new Date();
+    if (this.date.getDay() == 0) this.week = "周日";
 
-          if(this.date.getDay() == 1) this.week = "周一";
+    if (this.date.getDay() == 1) this.week = "周一";
 
-          if(this.date.getDay() == 2) this.week = "周二";
+    if (this.date.getDay() == 2) this.week = "周二";
 
-          if(this.date.getDay() == 3) this.week = "周三";
+    if (this.date.getDay() == 3) this.week = "周三";
 
-          if(this.date.getDay() == 4) this.week = "周四";
+    if (this.date.getDay() == 4) this.week = "周四";
 
-          if(this.date.getDay() == 5) this.week = "周五";
+    if (this.date.getDay() == 5) this.week = "周五";
 
-          if(this.date.getDay() == 6) this.week = "周六";
-    this.f_week=this.week;
-    this.s_week=this.week;
+    if (this.date.getDay() == 6) this.week = "周六";
+    this.f_week = this.week;
+    this.s_week = this.week;
+    // this.s_h_m = new Date().getHours()+':'+new Date().getMinutes();
     this.s_h_m=new Date();
-    this.f_h_m=new Date();
-
+    this.f_h_m = new Date();
   }
 };
 </script>
@@ -221,14 +237,14 @@ export default {
   height: 1rem;
   line-height: 1rem;
   overflow: hidden;
-  margin-top:1.5rem;
+  margin-top: 1.5rem;
 
-  .deration{
-    span{
-    font-size: .2rem;
-    color: #ffe009;
-    margin-left: 1.65rem;
-    margin-top: -.7rem;
+  .deration {
+    span {
+      font-size: 0.3rem;
+      color: #ffe009;
+      margin-left: 1.65rem;
+      margin-top: -0.7rem;
     }
   }
   span {
@@ -243,27 +259,27 @@ export default {
     margin-top: 0.4rem;
     float: left;
 
-    margin-left: .8rem;
+    margin-left: 0.8rem;
   }
   span:nth-child(3) {
     float: right;
   }
 }
-.time{
-  height: .4rem;
+.time {
+  height: 0.4rem;
   background-color: #fff;
-  font-size: .2rem;
+  font-size: 0.2rem;
   color: #999999;
   box-sizing: border-box;
-  padding:.08rem .3rem;
+  padding: 0.08rem 0.3rem;
   overflow: hidden;
-  span{
-    margin-right: .1rem;
+  span {
+    margin-right: 0.1rem;
   }
-  .left_{
+  .left_ {
     float: left;
   }
-  .right_{
+  .right_ {
     float: right;
   }
 }

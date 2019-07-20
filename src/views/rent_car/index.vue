@@ -33,6 +33,7 @@
      <div class="rent_">
 <Select></Select>
 <TimerPicker></TimerPicker>
+<!-- <Test></Test> -->
 <!-- <div class="car_info">
         <h4>车辆信息</h4>
         <img src="./img/car.png" alt />
@@ -63,6 +64,7 @@ import Select from './component/select.vue'
 import TimerPicker from './component/timePicker.vue'
 // import Test from './component/test.vue'
 import Banner from './component/banner.vue'
+// import  Test from './component/test'
 export default {
   data() {
     return {
@@ -84,7 +86,7 @@ Banner
       var str = this.msg.substring(0, 1);
       var end = this.msg.substring(1);
       this.msg = end + str;
-    }, 400);
+    }, 200);
   }
 }
 </script>
@@ -95,6 +97,7 @@ Banner
 }
 .content{
   font-size: 0;
+  height: calc(~ '100%-98px');
   .banner{
     img{
       width: 100%;
@@ -129,7 +132,7 @@ Banner
   height: 100%;
   background-color: #ededed;
   padding: 0 .34rem;
-  padding-bottom: 2.2rem;
+  padding-bottom: 1.05rem;
   position: relative;
   .foot{
     width: 100%;
