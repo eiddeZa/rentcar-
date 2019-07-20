@@ -2,7 +2,7 @@
   <div>
 <div class="select">
    <div class="city">
-     <span @click="city">{{$store.state.chosedcity}}</span>
+     <span @click="city" class="ci">{{$store.state.chosedcity}}</span>
      <img src="./../img/icon2.png" alt="">
      <span>请选择地址</span>
      <div class="menu">
@@ -49,6 +49,7 @@
 
 <script>
 import $ from 'jquery'
+import { Toast } from 'vant';
 export default {
   data() {
     return {
@@ -102,6 +103,11 @@ $(document).on("touchend", function(e) {
         $(this).addClass('active');                    // 为点击元素添加类名
     });
 });
+  },
+  updated(){
+    if(this.$store.state.chosedcity !='郑州'){
+        Toast(this.$store.state.chosedcity+'还未开扩新店')
+    }
   },
   methods: {
     city(){
