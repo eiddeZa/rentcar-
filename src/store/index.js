@@ -56,11 +56,18 @@ export default new Vuex.Store({
     setchexing(state,obj){
       state.obj=obj;
     },
-  updateid(state,da){
-    state.Phone=da[0],
-    state.top_img=da[1]
-    console.log(state.Phone);
-  },
+  //所选择的城市名字
+    chosed_c(state,v){
+      state.chosedcity = v;
+    },
+    add_jine(state,v){
+      state.jine = v;
+    },
+    updateid(state,da){
+      state.Phone=da[0];
+      state.top_img=da[1];
+      console.log(state.Phone);
+    },
   //评分数据
   pingjia_obj(state,obj){
     state.mark=obj;

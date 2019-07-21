@@ -17,6 +17,7 @@ export default {
   methods: {
 tiao(item){
        console.log(item);
+       
        this.$store.commit('chosed_c',item);
        this.$router.push("/rentCar");
 }

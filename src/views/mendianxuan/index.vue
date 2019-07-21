@@ -98,7 +98,7 @@ export default {
       this.$refs.men.childNodes[this.index].className="active";
     },
     tag(item){
-      this.$router.push({path:"/shopInfo",query:{title:item.tit}})
+      this.$router.push({path:"/shopInfo",query:{title:11}})
       window.localStorage.setItem("mendianinfo",JSON.stringify(item));
     }
 

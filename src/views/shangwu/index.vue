@@ -1,38 +1,61 @@
 <template>
   <ul>
-    <li>
-      <div class="imgs">
-        <img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt />
-      </div>
+    <li v-if="iis"><loadding/></li>
+    <li v-for="(item,index) in list" :key="index" @tap="fnnn(item)">
+     <div class="imgs"><img :src="item.carPicture" alt=""></div>
       <div class="mssg">
-        <p>雪佛兰科鲁兹</p>
+        <p>{{item.carName}}</p>
         <p>
-          <span>三厢</span>
-          <span>1.5自动</span>
-          <span>可乘坐5人</span>
+          <span>{{item.compartment}}厢</span>
+          <span>{{item.emissions}}自动</span>
+          <span>可乘坐{{item.compartment}}人</span>
         </p>
         <div>
           <p>
-            <span>69元</span>
+            <span>{{item.carRentH}}元</span>
             /时租
           </p>
           <p>
-            <span>269元</span>
+            <span>{{item.carRentD}}元</span>
             /日租
           </p>
         </div>
       </div>
-    </li>
+   </li>
   </ul>
 </template>
 
 <script>
+import loadding from '@/components/loadding'
 export default {
   data() {
-    return {};
+    return {
+      iis:true,
+      list:[]
+    };
   },
   methods: {},
-  components: {}
+  components: {
+    loadding
+  },
+  mounted(){
+    if(window.localStorage.getItem("shangwulist")==null){
+      console.log(12443)
+        this.axios.get("http://172.25.1.196:8080/backstage/prearrange").then((res)=>{
+          if(res.status==200){
+            this.list=res.data.slice(5,10);
+            this.iis=false;
+            window.localStorage.setItem("shangwulist",JSON.stringify(res.data.slice(5,10)))
+        }
+      })
+    }else{
+      setTimeout(()=>{
+
+        this.list=JSON.parse( window.localStorage.getItem("shangwulist"));
+        this.iis=false;
+      },1000)
+    }
+  }
 };
 </script>
 
@@ -60,6 +83,8 @@ ul {
         text-align: center;
         display: block;
         margin: 0 auto;
+         width: 2.2rem;
+      height: 2.2rem;
       }
     }
     .mssg {
