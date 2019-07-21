@@ -1,8 +1,8 @@
 <template>
   <div class="tianqi">
     <Header txt='郑州'>
-      <router-link slot="left" class="leftImg" to='/shouye'><img src="./images/椭圆 2 拷贝 2@2x.png"  /></router-link>
-      <router-link class="rightImg" slot="right" to='/'><img src="./images/圆角矩形 1 拷贝@2x.png"  /></router-link>
+      <router-link slot="left" class="leftImg" to='/mine'><img src="./images/iconleft.png"  /></router-link>
+      <img class="rightImg" slot="right" src="./images/圆角矩形 1 拷贝@2x.png"  />
     </Header>
     <p class="tianqi_show">
       <img src="./images/椭圆 1@2x.png" alt="">

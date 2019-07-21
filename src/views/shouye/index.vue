@@ -114,12 +114,16 @@ export default {
     heade
   },
   mounted(){
-    this.axios.get("http://172.25.5.219:8080/carRental_war_exploded/carController/find4Car").then((res)=>{
-      if(res.status==200){
-        // this.list=res.data;
-        console.log(res.data);
-      }
-    })
+    if(window.localStorage.getItem("shouyelist")==null){
+        this.axios.get("http://172.25.5.219:8080/carRental_war_exploded/carController/find4Car").then((res)=>{
+          if(res.status==200){
+            this.list=res.data;
+            window.localStorage.setItem("shouyelist",JSON.stringify(res.data))
+        }
+      })
+    }else{
+      this.list=JSON.parse(window.localStorage.getItem("shouyelist"));
+    }
   },
 }
 </script>
@@ -225,6 +229,7 @@ export default {
           }
           img{
             width: 1.28rem;
+            height: .57rem;
             margin-right: .32rem;
           }
         }

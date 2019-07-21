@@ -41,9 +41,7 @@
       <betterscroll :scrollTop="scrollTop" :scrollEnd="scrollEnd">
         <keep-alive>
           <transition mode="out-in">
-            <div>
             <router-view />
-            </div>
           </transition>
         </keep-alive>
       </betterscroll>

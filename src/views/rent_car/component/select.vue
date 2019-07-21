@@ -14,7 +14,7 @@
 
    </div>
     <div class="shop">
-     <span @click="shop">郑州</span>
+     <span @click="shop" >{{messg.tit}}</span>
      <img src="./../img/icon2.png" alt="">
      <span>请选择门店</span>
      <div class="menu">
@@ -53,6 +53,7 @@ import { Toast } from 'vant';
 export default {
   data() {
     return {
+      messg:null,
       value1: 'city1',
       value2: 'quyu',
       value3:'city1',
@@ -80,7 +81,9 @@ export default {
     }
   },
   mounted(){
-    
+    //.......
+    this.messg=JSON.parse( window.localStorage.getItem("mendianinfo"))||{tit:"郑州"};
+    console.log();
     $(function(){
       //自定义tap事件
       $(document).on("touchstart", function(e) {

@@ -84,7 +84,7 @@ export default {
           //返回手机，获取验证码
     this.axios
         .post(
-          "http://172.25.1.220:8080/carRental_war_exploded/randomNumberController/randomNumber",
+          window.ID+"carRental_war_exploded/randomNumberController/randomNumber",
           qs.stringify({
               userPhone: this.user
           }),
@@ -158,7 +158,7 @@ export default {
       //axios
       this.axios
         .post(
-          window.ID+"registered",
+          window.ID+"carRental_war_exploded/accountController/registered",
           qs.stringify({
               userPhone: this.user,
               accountPassword: this.password,
@@ -187,6 +187,7 @@ export default {
                 duration:4000,
                 background: '#46ff09'
               });
+              this.$store.commit("updateid",res.data)
               this.user="",
               this.password="",
               this.img_code="",
