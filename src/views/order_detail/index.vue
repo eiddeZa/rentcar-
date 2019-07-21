@@ -89,9 +89,9 @@
       </div>
       <div class="button">
         <keep-alive>
-          <router-link to="/">
+          <a>
             <span>再来一单</span>
-          </router-link >
+          </a >
         </keep-alive>
         <keep-alive>
           <router-link to="/evaluate">
