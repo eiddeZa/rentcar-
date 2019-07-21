@@ -37,7 +37,6 @@
 
 <script>
 import $ from "jquery";
-import { Toast } from "vant";
 export default {
   data() {
     return {
@@ -75,12 +74,6 @@ export default {
         $(this).addClass("active"); // 为点击元素添加类名
       });
     });
-  },
-  updated() {
-    if (this.$store.state.chosedcity != "郑州") {
-      Toast(this.$store.state.chosedcity + "还未开扩新店");
-      this.$store.state.chosedcity = "郑州";
-    }
   },
   methods: {
     city() {

@@ -69,7 +69,6 @@ export default {
       star: 4,
       arr_btn2: [],
       textbox: "",
-      time: ""
     };
   },
   methods: {
@@ -108,33 +107,13 @@ export default {
       }
       console.log(this.arr_btn2);
       console.log(this.star);
-
-      this.axios
-        .post(
-          "http://172.25.1.43:8080/accountController/userEvaluate",
-          qs.stringify({
-            indentId: 2019071913,
-            starlevel: this.star,
-            lable: this.arr_btn2,
-            opinion: this.textbox
-          }),
-          {
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            }
-          }
-        )
-        .then(
-          res => {
-            console.log(res);
+       this.$store.commit("pingjia_obj",{
+         star:this.star,
+         arr_btn2:this.arr_btn2,
+          textbox:this.textbox
+       })
       this.$router.push("/shopInfo");
-
-
-          },
-          err => {
-            console.log(err);
-          }
-        );
+      console.log(this.$store.state.mark);
     }
   },
   components: {

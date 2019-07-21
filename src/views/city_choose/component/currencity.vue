@@ -11,7 +11,7 @@
 export default {
   data() {
     return {
-     hot_list:["郑州","北京"]
+     hot_list:["郑州"]
     }
   },
   methods: {

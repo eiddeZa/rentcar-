@@ -16,7 +16,7 @@
 <script>
 import axios from 'axios';
 import $ from 'jquery';
-
+import {Toast} from 'vant';
 export default {
   data() {
     return {
@@ -36,9 +36,15 @@ export default {
   },
   methods: {
     chosed_city(item2){
-      console.log(item2);
+      if(item2!='郑州')
+      {
+       Toast(item2+'未开括新店');
+      }else{
+     console.log(item2);
        this.$store.commit('chosed_c',item2);
        this.$router.push("/rentCar");
+      }
+      
 
       
     }
@@ -76,13 +82,13 @@ export default {
     padding: 0.2rem 0 0.26rem 0.14rem;
   }
   /deep/.van-index-bar__sidebar{
-     top:65%;
+     top:60%;
      right: .38rem;
   }
   /deep/.van-index-bar__index{
-    font-size: .16rem;
-    line-height: .24rem;
-        font-family: -webkit-body;
+    font-size: .25rem;
+    line-height: .4rem;
+    font-family: -webkit-body;
   }
 }
 </style>
