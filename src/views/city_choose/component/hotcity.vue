@@ -38,7 +38,7 @@ export default {
     this.$store.commit('chosed_c',cityname);
     this.$router.push("/rentCar")
    }
-  
+    
   }
   },
   components: {

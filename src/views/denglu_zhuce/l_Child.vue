@@ -58,11 +58,13 @@ Hend
         overflow: hidden;
         background: url("./img/Start_icon@2x.png") no-repeat center center;
         background-size:100% 100%; 
-         border: 2/@r solid #ffec09; 
+        //  border: 2/@r solid #ffec09; 
+        overflow: hidden;
     }
     .input-box{
         margin-top:90/@r;
         padding: 0 70/@r;
+        overflow: hidden;
         p{
             height:76/@r;
             border-bottom:1/@r solid #e8e8e8;

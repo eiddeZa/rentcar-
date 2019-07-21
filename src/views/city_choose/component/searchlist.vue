@@ -44,7 +44,7 @@ export default {
     this.$store.commit('chosed_c',item2);
        this.$router.push("/rentCar");
    }
-       
+  
 
       
     }
@@ -82,13 +82,13 @@ export default {
     padding: 0.2rem 0 0.26rem 0.14rem;
   }
   /deep/.van-index-bar__sidebar{
-     top:65%;
+     top:60%;
      right: .38rem;
   }
   /deep/.van-index-bar__index{
-    font-size: .16rem;
-    line-height: .24rem;
-        font-family: -webkit-body;
+    font-size: .25rem;
+    line-height: .4rem;
+    font-family: -webkit-body;
   }
 }
 </style>

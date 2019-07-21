@@ -132,8 +132,12 @@ export default {
       let s_date = this.startTime;
       let f_time = f_date.getTime();
       let s_time = s_date.getTime();
-      let day =Math.ceil((f_time - s_time) / 1000 / 60 / 60 / 24);
+      let day = Math.ceil((f_time - s_time) / 1000 / 60 / 60 / 24);
       this.tianshu = day + "天";
+      if(day<0){
+        this.tianshu='0天'
+      }
+      console.log(this.tianshu)
       console.log(s_date);
       console.log(day);
       this.$store.commit("day", this.tianshu);
@@ -243,7 +247,7 @@ export default {
     span {
       font-size: 0.3rem;
       color: #ffe009;
-      margin-left: 1.65rem;
+      margin-left: 1.45rem;
       margin-top: -0.7rem;
     }
   }
