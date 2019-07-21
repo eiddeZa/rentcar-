@@ -1,6 +1,6 @@
 <template>
   <ul>
-   <li>
+   <touter-link tag="li" to>
      <div class="imgs"><img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt=""></div>
       <div class="mssg">
         <p>雪佛兰科鲁兹</p>
@@ -20,7 +20,7 @@
           </p>
         </div>
       </div>
-   </li>
+   </touter-link>
    </ul>
 </template>
 

@@ -10,8 +10,8 @@
         <div class="bans">
           <betterscroll ref="aaa">
           <div>
-            <ul>
-              <li v-for="(item,index) in list" ref="men" @tap="chang(index)" :key="index">{{item}}</li>
+            <ul ref="men">
+              <li v-for="(item,index) in list" :class="{active:index==0}"  @tap="chang(index)" :key="index">{{item.title}}</li>
             </ul>
           </div>
           </betterscroll>
@@ -19,203 +19,20 @@
         <div class="section">
           <betterscroll ref="sc" :scrollTop="scrollTop" :probeTypes="2">
             <div class="container">
-                <div class="andmine">
-                  <h4>附近门店</h4>
-                  <ul>
-                    <li @tap="tag">
+                000<div v-if="iss"><loadding/></div>
+                <div class="andmine" v-for="(item,inde) in list" :key="inde">
+                  <h4>{{item.title}}</h4>
+                  <ul >
+                    <li @tap="tag(item_)" v-for="(item_,ins) in item.lis" :key="ins">
                       <div class="title">
-                        <div>郑州动物园自助点</div>
+                        <div>{{item_.tit}}</div>
                         <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
+                          <span v-if="item_.iszizhu==1" class="zizhu">仅自助</span>
+                          <span v-else class="ershisi">24</span>
+                          <span v-if="item_.jvli" class="jvli">{{item_.jvli}}km</span>
                         </div>
                       </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                  </ul>
-                </div>
-                <div class="andmine">
-                  <h4>金水区</h4>
-                  <ul>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                  </ul>
-                </div>
-                <div class="andmine">
-                  <h4>二七区</h4>
-                  <ul>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                  </ul>
-                </div>
-                <div class="andmine">
-                  <h4>机场/火车站</h4>
-                  <ul>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                  </ul>
-                </div>
-                <div class="andmine">
-                  <h4>管城区</h4>
-                  <ul>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                  </ul>
-                </div>
-                <div class="andmine">
-                  <h4>中原区</h4>
-                  <ul>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
-                    </li>
-                    <li>
-                      <div class="title">
-                        <div>郑州动物园自助点</div>
-                        <div>
-                          <span class="zizhu">仅自助</span>
-                          <span class="jvli">0.71km</span>
-                        </div>
-                      </div>
-                      <p>郑州市金水区花园路59号(花园路与红旗路交叉口向北20米</p>
+                      <p>{{item_.msg}}</p>
                     </li>
                   </ul>
                 </div>
@@ -229,12 +46,14 @@
 <script>
 import heade from '@/components/header/header.vue'
 import betterscroll from '@/components/betterscroll'
+import loadding from '@/components/loadding'
 export default {
     name:'mendianxuan',
   data() {
     return {
-      list:['附近门店','金水区','二七区','机场/火车站','管城区','中原区'],
-      index:0
+      list:[],
+      index:0,
+      iss:true
     }
   },
   methods: {
@@ -273,13 +92,14 @@ export default {
       }
     },
     fn(){
-      this.$refs.men.forEach((item)=>{
+      this.$refs.men.childNodes.forEach((item)=>{
         item.className="";
       })
-      this.$refs.men[this.index].className="active";
+      this.$refs.men.childNodes[this.index].className="active";
     },
-    tag(){
-      this.$router.push({path:"/shopInfo",query:{title:"lalala"}})
+    tag(item){
+      this.$router.push({path:"/shopInfo",query:{title:item.tit}})
+      window.localStorage.setItem("mendianinfo",JSON.stringify(item));
     }
 
   },
@@ -295,11 +115,26 @@ export default {
     }
   },
   mounted(){
-    this.$refs.men[this.index].className="active";
+    if(window.localStorage.getItem("mendianlist")==null){
+      this.axios.get("https://www.easy-mock.com/mock/5d32d0e3727ccf47581b3589/CityList/CityList").then((res)=>{
+        if(res.status==200){
+          this.list=res.data.data.list;
+          window.localStorage.setItem("mendianlist",JSON.stringify(res.data.data.list));
+            this.iss=false;
+        }
+     })
+    }else{
+      this.iss=true;
+      setTimeout(()=>{
+      this.iss=false;
+      this.list=JSON.parse(window.localStorage.getItem("mendianlist"));
+      },1000)
+    }
   },
   components: {
       heade,
-    betterscroll
+    betterscroll,
+    loadding
   }
 }
 </script>
@@ -361,6 +196,18 @@ input::-webkit-input-placeholder {
                   color: #ffe009;
                   padding: 0 .1rem;
                   margin-right: .36rem;
+                }
+                .ershisi{
+                  width: .32rem;
+                  height: .32rem;
+                  border-radius: 50%;
+                  background-color: #fedf08;
+                  color:#fff;
+                  text-align: center;
+                  line-height: .32rem;
+                  font-size: .13rem;
+                  margin-right: .4rem;
+                  display: inline-block;
                 }
                 .jvli{
                   font-size: .18rem;
