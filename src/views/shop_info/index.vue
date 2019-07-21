@@ -109,33 +109,6 @@ export default {
     Header
   },
   mounted(){
-    console.log(this.$route.query.title);
-    this.axios
-        .post(
-          "http://172.25.1.196:8080/address/findById",
-          qs.stringify({
-            shopId:this.shopId
-          }),
-          {
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            }
-          }
-        )
-        .then(
-          res => {
-            console.log(res);
-            this.list=res.data
-            console.log(this.list)
-
-      this.$router.push("/shopInfo");
-
-
-          },
-          err => {
-            console.log(err);
-          }
-        );
   }
 };
 </script>

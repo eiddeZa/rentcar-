@@ -115,7 +115,7 @@ export default {
   },
   mounted(){
     if(window.localStorage.getItem("shouyelist")==null){
-        this.axios.get("http://172.25.5.219:8080/carRental_war_exploded/carController/find4Car").then((res)=>{
+        this.axios.get("http://172.25.1.196:8080/carController/find4Car").then((res)=>{
           if(res.status==200){
             this.list=res.data;
             window.localStorage.setItem("shouyelist",JSON.stringify(res.data))
