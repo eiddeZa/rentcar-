@@ -10,7 +10,7 @@
     <div class="content">
       <div class="shop_info">
         <h4>
-          郑州金水租车店
+          {{list.shopName}}
           <span>管辖区</span>
         </h4>
         <p>
@@ -38,7 +38,7 @@
       </div>
       <div class="location">
           <img src="./img/icon-position 拷贝@2x.png" alt="">
-          <span>金水区未来路交叉口（兰德中心150米路西）</span>
+          <span>{{list.address}}</span>
 
       </div>
       <div class="phone">
@@ -48,7 +48,7 @@
           </div>
           <div class="right">
               <img src="./img/icon-phone@2x.png" alt="">
-              <span>12367545678</span>
+              <span>{{list.cellPhoneNumber}}</span>
           </div>
       </div>
       <div class="comment">
@@ -76,11 +76,14 @@
 </template>
 
 <script>
+import qs from "qs";
 import Header from "./../../components/header/header.vue";
 export default {
   data() {
     return {
       value: 3,
+      shopId:1,
+      list:[],
  
     };
   },
@@ -107,6 +110,32 @@ export default {
   },
   mounted(){
     console.log(this.$route.query.title);
+    this.axios
+        .post(
+          "http://172.25.1.196:8080/address/findById",
+          qs.stringify({
+            shopId:this.shopId
+          }),
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+          }
+        )
+        .then(
+          res => {
+            console.log(res);
+            this.list=res.data
+            console.log(this.list)
+
+      this.$router.push("/shopInfo");
+
+
+          },
+          err => {
+            console.log(err);
+          }
+        );
   }
 };
 </script>
