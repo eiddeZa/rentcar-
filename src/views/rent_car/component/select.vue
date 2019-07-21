@@ -110,6 +110,7 @@ $(document).on("touchend", function(e) {
   updated(){
     if(this.$store.state.chosedcity !='郑州'){
         Toast(this.$store.state.chosedcity+'还未开扩新店')
+        this.$store.state.chosedcity='郑州'
     }
   },
   methods: {

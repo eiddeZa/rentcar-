@@ -19,7 +19,7 @@
         <div class="section">
           <betterscroll ref="sc" :scrollTop="scrollTop" :probeTypes="2">
             <div class="container">
-                000<div v-if="iss"><loadding/></div>
+                <div v-if="iss"><loadding/></div>
                 <div class="andmine" v-for="(item,inde) in list" :key="inde">
                   <h4>{{item.title}}</h4>
                   <ul >
@@ -98,7 +98,7 @@ export default {
       this.$refs.men.childNodes[this.index].className="active";
     },
     tag(item){
-      this.$router.push({path:"/shopInfo",query:{title:item.tit}})
+      this.$router.push({path:"/shopInfo",query:{title:11}})
       window.localStorage.setItem("mendianinfo",JSON.stringify(item));
     }
 

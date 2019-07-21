@@ -15,12 +15,9 @@ export default new Vuex.Store({
     get_time:new Date(),
     chosedcity:"郑州",
     jine:0,
-<<<<<<< HEAD
-    obj:null//储存选中车辆信息
-=======
+    obj:null,//储存选中车辆信息
     Phone:"",
     top_img:""
->>>>>>> aa/master
   },
   mutations: {
     //签到加积分200
@@ -47,7 +44,6 @@ export default new Vuex.Store({
         state.order_time=v
       },
 
-<<<<<<< HEAD
     //所选择的城市名字
     chosed_c(state,v){
       state.chosedcity = v;
@@ -59,22 +55,19 @@ export default new Vuex.Store({
     //提交选择车型
     setchexing(state,obj){
       state.obj=obj;
-    }
-=======
+    },
   //所选择的城市名字
-  chosed_c(state,v){
-    state.chosedcity = v;
-   
-  },
-  add_jine(state,v){
-    state.jine = v;
-  },
-  updateid(state,da){
-    state.Phone=da[0],
-    state.top_img=da[1]
-    console.log(state.Phone);
-  }
->>>>>>> aa/master
+    chosed_c(state,v){
+      state.chosedcity = v;
+    },
+    add_jine(state,v){
+      state.jine = v;
+    },
+    updateid(state,da){
+      state.Phone=da[0];
+      state.top_img=da[1];
+      console.log(state.Phone);
+    }
   },
   actions: {
 

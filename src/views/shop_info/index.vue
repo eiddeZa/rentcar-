@@ -101,7 +101,6 @@ export default {
     Header
   },
   mounted(){
-    console.log(this.$route.query.title);
   }
 };
 </script>

@@ -1,41 +1,61 @@
 <template>
   <ul>
-   <touter-link tag="li" to>
-     <div class="imgs"><img src="./image/4S53M8ZRB$0Z)@GU28UE40S@2x.png" alt=""></div>
+    <li v-if="iss"><loadding/></li>
+   <li v-for="(item,index) in list" :key="index" @tap="fnnn(item)">
+     <div class="imgs"><img :src="item.carPicture" alt=""></div>
       <div class="mssg">
-        <p>雪佛兰科鲁兹</p>
+        <p>{{item.carName}}</p>
         <p>
-          <span>三厢</span>
-          <span>1.5自动</span>
-          <span>可乘坐5人</span>
+          <span>{{item.compartment}}厢</span>
+          <span>{{item.emissions}}自动</span>
+          <span>可乘坐{{item.compartment}}人</span>
         </p>
         <div>
           <p>
-            <span>69元</span>
+            <span>{{item.carRentH}}元</span>
             /时租
           </p>
           <p>
-            <span>269元</span>
+            <span>{{item.carRentD}}元</span>
             /日租
           </p>
         </div>
       </div>
-   </touter-link>
+   </li>
    </ul>
 </template>
 
 <script>
+import loadding from '@/components/loadding'
 export default {
   data() {
     return {
-
+      iss:true,
+      list:[]
     }
   },
   methods: {
 
   },
   components: {
-
+    loadding
+  },
+  mounted(){
+    if(window.localStorage.getItem("jingjilist")==null){
+      console.log(12443)
+        this.axios.get("http://172.25.1.196:8080/backstage/prearrange").then((res)=>{
+          if(res.status==200){
+            this.list=res.data.slice(0,5);
+            this.iss=false;
+            window.localStorage.setItem("jingjilist",JSON.stringify(res.data.slice(0,6)))
+        }
+      })
+    }else{
+      setTimeout(()=>{
+        this.list=JSON.parse( window.localStorage.getItem("jingjilist"));
+        this.iss=false;
+      },1000)
+    }
   }
 }
 </script>
@@ -64,6 +84,8 @@ ul{
       text-align: center;
       display: block;
       margin: 0 auto;
+       width: 2.2rem;
+      height: 2.2rem;
       }
     }
     .mssg{

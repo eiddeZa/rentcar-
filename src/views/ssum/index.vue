@@ -49,7 +49,7 @@ export default {
     
     if(window.localStorage.getItem("ssumlist")==null){
       console.log(12443)
-        this.axios.get("http://172.25.5.219:8080/carRental_war_exploded/backstage/prearrange").then((res)=>{
+        this.axios.get("http://172.25.1.196:8080/backstage/prearrange").then((res)=>{
           if(res.status==200){
             this.list=res.data;
             this.iss=false;
@@ -57,8 +57,10 @@ export default {
         }
       })
     }else{
+      setTimeout(()=>{
+        this.iss=false;
       this.list=JSON.parse( window.localStorage.getItem("ssumlist"));
-      this.iss=false;
+      },1000)
     }
     
   }
