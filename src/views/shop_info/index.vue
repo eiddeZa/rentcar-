@@ -19,7 +19,7 @@
         </p>
       </div>
       <div class="rate">
-        <van-rate v-model="value" :size="20" :count="5" allow-half  readonly/>
+        <van-rate v-model="value"  :size="20" :count="5" allow-half  readonly/>
         <span>{{value*20}}评分</span>
         <keep-alive>
           <router-link to="">
@@ -61,7 +61,7 @@
               <span>最新</span>
               <span>服务态度</span>
               <van-rate v-model="value" :size="10" :count="5" allow-half readonly/>
-              <p>情况不错，租车方便快捷，如果能有租车到家的话就更好了。那样更方便</p>
+              <p>{{$store.state.mark.textbox}}</p>
           </div>
       </div>
      <div class="more">
@@ -81,9 +81,10 @@ import Header from "./../../components/header/header.vue";
 export default {
   data() {
     return {
-      value: 3,
+      value: 2,
       shopId:1,
       list:[],
+      text:'车辆很好，能租车到家的话更好'
  
     };
   },
@@ -98,9 +99,6 @@ export default {
     }
   },
   methods: {
-    //    onChange(index) {
-    //   this.index = index;
-    // }
     ggo(){
       this.$router.go(-1);
     }
@@ -109,7 +107,7 @@ export default {
     Header
   },
   mounted(){
-    console.log(this.$route.query.title);
+    this.value=this.$store.state.mark.star;
     this.axios
         .post(
           "http://172.25.1.196:8080/address/findById",
@@ -129,8 +127,8 @@ export default {
             console.log(this.list)
 
       this.$router.push("/shopInfo");
-
-
+      
+      console.log(this.value)
           },
           err => {
             console.log(err);
