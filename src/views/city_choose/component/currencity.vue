@@ -11,12 +11,13 @@
 export default {
   data() {
     return {
-     hot_list:["郑州","北京"]
+     hot_list:["郑州"]
     }
   },
   methods: {
 tiao(item){
        console.log(item);
+       
        this.$store.commit('chosed_c',item);
        this.$router.push("/rentCar");
 }

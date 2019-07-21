@@ -16,7 +16,7 @@
 <script>
 import axios from 'axios';
 import $ from 'jquery';
-
+import {Toast} from 'vant';
 export default {
   data() {
     return {
@@ -37,8 +37,14 @@ export default {
   methods: {
     chosed_city(item2){
       console.log(item2);
-       this.$store.commit('chosed_c',item2);
+      if(item2!='郑州'){
+      Toast(item2+'还未开扩新店')
+      retuen;
+   }else{
+    this.$store.commit('chosed_c',item2);
        this.$router.push("/rentCar");
+   }
+       
 
       
     }

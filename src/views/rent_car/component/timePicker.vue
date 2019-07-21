@@ -132,7 +132,7 @@ export default {
       let s_date = this.startTime;
       let f_time = f_date.getTime();
       let s_time = s_date.getTime();
-      let day = parseInt((f_time - s_time) / 1000 / 60 / 60 / 24);
+      let day =Math.ceil((f_time - s_time) / 1000 / 60 / 60 / 24);
       this.tianshu = day + "天";
       console.log(s_date);
       console.log(day);
