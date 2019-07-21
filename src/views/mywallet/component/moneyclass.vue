@@ -1,9 +1,9 @@
 <template>
   <ul class="fenlei">
-    <li><p>评价币</p><p><span>2</span>枚</p></li>
+    <li><p>评价币</p><p><span>0</span>枚</p></li>
     <li><p>我的积分</p><p><span>{{$store.state.jifen}}</span>积分</p></li>
-    <li><p>优惠券</p><p><span>2</span>张</p></li>
-    <li><p>信用卡</p><p><span>4</span>张</p></li>
+    <li><p>优惠券</p><p><span>0</span>张</p></li>
+    <li><p>信用卡</p><p><span>0</span>张</p></li>
   </ul>
 </template>
 
