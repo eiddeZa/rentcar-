@@ -57,7 +57,7 @@
               <span>评论</span>
           </div>
           <div class="user_info">
-              <span>156********89</span>
+        <span>{{$store.state.Phone | encode}}</span>
               <span>最新</span>
               <span>服务态度</span>
               <van-rate v-model="value" :size="10" :count="5" allow-half readonly/>
@@ -81,13 +81,18 @@ export default {
   data() {
     return {
       value: 3,
-    //    show: false,
-    //   index: 0,
-    //   images: [
-    //     'https://img.yzcdn.cn/1.jpg',
-    //     'https://img.yzcdn.cn/2.jpg'
-    //   ]
+ 
     };
+  },
+  filters: {
+    // 过滤器  加密 用户账号
+    encode: function(val) {
+      val = val.toString();
+      // console.log(val);
+      let userId = val.substring(0, 4) + "***" + val.substring(7);
+      // console.log(jiami_num);
+      return userId;
+    }
   },
   methods: {
     //    onChange(index) {

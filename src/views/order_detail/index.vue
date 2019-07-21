@@ -40,7 +40,7 @@
           </li>
           <li>
             取车时间：
-            <span>{{list.get_time}}</span>
+            <span>{{$store.state.get_time | formatDate}}</span>
           </li>
           <li>
             还车城市：
@@ -105,11 +105,27 @@
 
 <script>
 import Header from "./../../components/header/header.vue";
+var padDate = function(val) {
+  return val < 10 ? "0" + val : val;
+};
 export default {
   data() {
     return {
       list:[]
     };
+  },
+   filters: {
+    formatDate: function(val) {
+      if (val) {
+        var year = val.getFullYear();
+        var month = padDate(val.getMonth() + 1);
+        var day = padDate(val.getDate());
+        var hour = padDate(val.getHours());
+        var minutes = padDate(val.getMinutes());
+        var second = padDate(val.getSeconds());
+        return month + "月" + day + "日";
+      }
+    }
   },
   mounted(){
 this.axios.get('./../../../static/json/detail.json').then((res)=>{
