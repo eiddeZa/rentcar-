@@ -3,7 +3,7 @@
     <div class="shop">
       <Header txt="门店详情">
         <!-- <span >dhdhddd</span> -->
-        <img @click="topf" src="./img/back.png" slot="left" class="leftImg" alt />
+        <img src="./img/back.png" slot="left" @click="ggo" class="leftImg" alt />
         <img src slot="right" class="rightImg" alt />
       </Header>
     </div>
@@ -81,12 +81,7 @@ export default {
   data() {
     return {
       value: 3,
-    //    show: false,
-    //   index: 0,
-    //   images: [
-    //     'https://img.yzcdn.cn/1.jpg',
-    //     'https://img.yzcdn.cn/2.jpg'
-    //   ]
+ 
     };
   },
   filters: {
@@ -103,8 +98,8 @@ export default {
     //    onChange(index) {
     //   this.index = index;
     // }
-    topf(){
-    this.$router.go(-1);
+    ggo(){
+      this.$router.go(-1);
     }
   },
   components: {

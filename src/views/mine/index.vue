@@ -71,6 +71,7 @@ export default {
       this.sh = false;
       this.shyi = true;
       this.$store.commit("add_jifen",200);
+      
     }
   },
   components: {
