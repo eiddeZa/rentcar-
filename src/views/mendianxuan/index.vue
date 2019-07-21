@@ -19,7 +19,7 @@
         <div class="section">
           <betterscroll ref="sc" :scrollTop="scrollTop" :probeTypes="2">
             <div class="container">
-                000<div v-if="iss"><loadding/></div>
+                <div v-if="iss"><loadding/></div>
                 <div class="andmine" v-for="(item,inde) in list" :key="inde">
                   <h4>{{item.title}}</h4>
                   <ul >

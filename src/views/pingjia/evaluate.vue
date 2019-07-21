@@ -84,7 +84,7 @@ export default {
             }
         }
         console.log(this.arr_btn2);
-
+          this.$router.push('/shouye');
 this.axios
         .post(
           "http://172.25.1.43:8080/accountController/userEvaluate",
@@ -103,6 +103,7 @@ this.axios
         .then(
           res => {
             console.log(res);
+           
           },
           err => {
             console.log(err);
