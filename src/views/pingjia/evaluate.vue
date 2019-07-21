@@ -84,6 +84,7 @@ export default {
             }
         }
         console.log(this.arr_btn2);
+        console.log(this.star)
 
 this.axios
         .post(
