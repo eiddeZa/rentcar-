@@ -74,7 +74,7 @@ export default {
       this.$store.commit("add_jifen",200);
       //  this.axios
       //   .post(
-      //     "http://172.25.1.225:8080/carRental_war_exploded/accountController/addIntegral",
+      //     "http://172.25.1.225:8080/carRental_war_exploded/accountController/addIntegral?"+" this.userPhone"+"this.paddd",
       //     qs.stringify({
       //         userPhone: this.userPhone
       //     }),
