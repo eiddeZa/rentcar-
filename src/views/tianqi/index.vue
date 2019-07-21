@@ -47,8 +47,10 @@ Header
 <style scoped lang="less">
 .tianqi{
   background:url("./images/bj.jpg") no-repeat;
-  background-size: 100% 100%;
+  background-size:cover;
   height: 100%;
+  display: flex;
+  flex-direction: column;
   .header{
       background:none;
       color: #ffffff;

@@ -71,6 +71,7 @@ export default {
       this.sh = false;
       this.shyi = true;
       this.$store.commit("add_jifen",200);
+      
     }
   },
   components: {
@@ -170,7 +171,7 @@ export default {
   }
   /deep/.van-popup--center {
     top: 2.63rem;
-    left: 0.5rem;
+    left: 0rem;
     transform: none;
   }
   /deep/.van-button--primary {

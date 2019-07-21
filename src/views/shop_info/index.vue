@@ -10,7 +10,7 @@
     <div class="content">
       <div class="shop_info">
         <h4>
-          郑州金水租车店
+          {{list.shopName}}
           <span>管辖区</span>
         </h4>
         <p>
@@ -38,7 +38,7 @@
       </div>
       <div class="location">
           <img src="./img/icon-position 拷贝@2x.png" alt="">
-          <span>金水区未来路交叉口（兰德中心150米路西）</span>
+          <span>{{list.address}}</span>
 
       </div>
       <div class="phone">
@@ -48,7 +48,7 @@
           </div>
           <div class="right">
               <img src="./img/icon-phone@2x.png" alt="">
-              <span>12367545678</span>
+              <span>{{list.cellPhoneNumber}}</span>
           </div>
       </div>
       <div class="comment">
@@ -57,7 +57,7 @@
               <span>评论</span>
           </div>
           <div class="user_info">
-              <span>156********89</span>
+        <span>{{$store.state.Phone | encode}}</span>
               <span>最新</span>
               <span>服务态度</span>
               <van-rate v-model="value" :size="10" :count="5" allow-half readonly/>
@@ -76,18 +76,26 @@
 </template>
 
 <script>
+import qs from "qs";
 import Header from "./../../components/header/header.vue";
 export default {
   data() {
     return {
       value: 3,
-    //    show: false,
-    //   index: 0,
-    //   images: [
-    //     'https://img.yzcdn.cn/1.jpg',
-    //     'https://img.yzcdn.cn/2.jpg'
-    //   ]
+      shopId:1,
+      list:[],
+ 
     };
+  },
+  filters: {
+    // 过滤器  加密 用户账号
+    encode: function(val) {
+      val = val.toString();
+      // console.log(val);
+      let userId = val.substring(0, 4) + "***" + val.substring(7);
+      // console.log(jiami_num);
+      return userId;
+    }
   },
   methods: {
     //    onChange(index) {

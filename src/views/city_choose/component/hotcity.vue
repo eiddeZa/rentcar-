@@ -9,6 +9,7 @@
 
 <script>
 import $ from 'jquery'
+import { Toast } from 'vant';
 import axios from 'axios'
 export default {
   data() {
@@ -30,8 +31,14 @@ export default {
   chosed_city(index){
    var cityname = this.hotlist[index].name; 
    console.log(cityname);
+   if(cityname!='郑州'){
+      Toast(cityname+'还未开扩新店')
+      retuen;
+   }else{
     this.$store.commit('chosed_c',cityname);
     this.$router.push("/rentCar")
+   }
+    
   }
   },
   components: {

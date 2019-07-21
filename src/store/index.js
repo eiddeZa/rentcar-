@@ -12,12 +12,12 @@ export default new Vuex.Store({
     order_num:null,//订单号
     order_time:null,//订单时间
     tianshu:'2天',
-    get_time:new Date(),
     chosedcity:"郑州",
     jine:0,
     obj:null,//储存选中车辆信息
     Phone:"",
-    top_img:""
+    top_img:"",
+    mark:""
   },
   mutations: {
     //签到加积分200
@@ -67,7 +67,11 @@ export default new Vuex.Store({
       state.Phone=da[0];
       state.top_img=da[1];
       console.log(state.Phone);
-    }
+    },
+  //评分数据
+  pingjia_obj(state,obj){
+    state.mark=obj;
+  }
   },
   actions: {
 
