@@ -132,10 +132,24 @@ export default {
       let s_date = this.startTime;
       let f_time = f_date.getTime();
       let s_time = s_date.getTime();
+      let f_y=f_date.getFullYear();
+      let f_m=f_date.getMonth();
+      let f_d=f_date.getDate();
+      let f_h=f_date.getHours();
+      let f_min=f_date.getMinutes();
+      let s_y=s_date.getFullYear();
+      let s_m=s_date.getMonth();
+      let s_d=s_date.getDate();
+      let s_h=s_date.getHours();
+      let s_min=s_date.getMinutes();
+
       let day = Math.ceil((f_time - s_time) / 1000 / 60 / 60 / 24);
       this.tianshu = day + "天";
       if(day<0){
         this.tianshu='0天'
+      }
+       if(f_y==s_y&&f_m==s_m&&f_d==s_d&&f_h==s_h&&f_min==s_min){
+         this.tianshu='0天'
       }
       console.log(this.tianshu)
       console.log(s_date);

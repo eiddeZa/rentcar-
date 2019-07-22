@@ -34,7 +34,7 @@
     <div class="tanchu" v-show="meng">
       <ul>
         <li @click="showren()">时间/日期</li>
-        <li @click="meng=false">顺风车</li>
+        <li @click="shunfeng">顺风车</li>
         <li @click="meng=false">取消</li>
       </ul>
     </div>
@@ -47,6 +47,7 @@ VueAMap.initAMapApiLoader({
   uiVersion: '1.0.11' // 版本号
 })
 import heade from '@/components/header/header.vue'
+import {Toast} from 'vant'
 export default {
   data() {
     let self = this;
@@ -108,6 +109,10 @@ export default {
     showren(){
       this.meng=false;
       this.$router.push("/rentCar");
+    },
+    shunfeng(){
+      this.meng=false;
+      Toast('此项正在研发中')
     }
   },
   components:{

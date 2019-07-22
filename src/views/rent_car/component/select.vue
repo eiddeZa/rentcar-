@@ -40,7 +40,7 @@ import $ from "jquery";
 export default {
   data() {
     return {
-      messg: null
+      messg:{tit:null}
     };
   },
   mounted() {

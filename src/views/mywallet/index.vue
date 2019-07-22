@@ -37,9 +37,9 @@ Moneyclass
   background: #eeeeee;
   padding-bottom: .8rem;
  .icon_wall{
-   width: 4.8rem;
-   height: 4.8rem;
-   margin: .5rem auto;
+   width: 4.5rem;
+   height: 4.5rem;
+   margin: .5rem auto 0 auto;
   
  }
 }

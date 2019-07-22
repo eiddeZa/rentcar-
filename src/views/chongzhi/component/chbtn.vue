@@ -41,9 +41,6 @@ export default {
     this.moni_show=false;
     this.$router.push('/succ');
     this.$store.commit('add_jine',this.jine[this.$store.state.chooseLi].num);
-  
-       
-
   },
   chong(){
        this.moni_show=!this.moni_show;
