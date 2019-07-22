@@ -43,14 +43,8 @@ export default new Vuex.Store({
       orderTime(state,v){
         state.order_time=v
       },
-
-    //所选择的城市名字
-    chosed_c(state,v){
-      state.chosedcity = v;
-    
-    },
     add_jine(state,v){
-      state.jine = v;
+      state.jine+=v;
     },
     //提交选择车型
     setchexing(state,obj){
@@ -59,9 +53,6 @@ export default new Vuex.Store({
   //所选择的城市名字
     chosed_c(state,v){
       state.chosedcity = v;
-    },
-    add_jine(state,v){
-      state.jine = v;
     },
     updateid(state,da){
       state.Phone=da[0];

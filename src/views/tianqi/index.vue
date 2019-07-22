@@ -6,7 +6,7 @@
     </Header>
     <p class="tianqi_show">
       <img src="./images/椭圆 1@2x.png" alt="">
-      <span>29℃</span>
+      <span>32℃</span>
     </p>
     <div class="kongqi">
       <p><img src="./images/形状 1@2x.png" class="icon_yezi">空气质量 <span class="zhiliang">优</span><span class="zhuangtai">晴</span><img src="./images/形状 2@2x.png" class="shui"><span>降水量  0</span></p>
@@ -46,7 +46,7 @@ Header
 
 <style scoped lang="less">
 .tianqi{
-  background:url("./images/bj.jpg") no-repeat;
+  background:url("./images/bj.jpg") no-repeat center center;
   background-size:cover;
   height: 100%;
   display: flex;
@@ -67,7 +67,7 @@ Header
     }
   }
   .kongqi{
-   padding: .3rem .42rem;
+   padding: .1rem .42rem;
     font-size: .3rem;
     color: #ffffff;
     p{
@@ -137,7 +137,7 @@ Header
  .weilai{
    color: #e4d323;
     font-size: .28rem;
-    padding: .2rem;
+    // padding: .2rem;
     display: flex;
     justify-content: center;
     align-items: center;

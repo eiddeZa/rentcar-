@@ -33,7 +33,7 @@ export default {
    console.log(cityname);
    if(cityname!='郑州'){
       Toast(cityname+'还未开扩新店')
-      retuen;
+      return;
    }else{
     this.$store.commit('chosed_c',cityname);
     this.$router.push("/rentCar")
